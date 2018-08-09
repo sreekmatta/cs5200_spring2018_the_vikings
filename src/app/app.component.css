@@ -89,3 +89,16 @@ body {
     margin-top: 7rem;
   }
 }
+
+.mh-carousel-heading{
+  font-size: 64px;
+}
+
+.mh-brand{
+  font-family: 'Monoton', cursive;
+  font-size: 30px;
+}
+
+.mh-links{
+  padding-left: 20px;
+}
