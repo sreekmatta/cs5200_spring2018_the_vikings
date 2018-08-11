@@ -10,6 +10,9 @@ import {routing} from './app.routing';
 import { MusicHubComponent } from './music-hub/music-hub.component';
 import {PersonServiceClient} from './services/person.service.client';
 import {FormsModule} from '@angular/forms';
+import {NapsterServiceClient} from './services/napster.service.client';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { ResultsListComponent } from './results-list/results-list.component';
 
 @NgModule({
   declarations: [
@@ -18,14 +21,16 @@ import {FormsModule} from '@angular/forms';
     RegisterComponent,
     ProfileComponent,
     HomeComponent,
-    MusicHubComponent
+    MusicHubComponent,
+    SearchResultsComponent,
+    ResultsListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     routing
   ],
-  providers: [PersonServiceClient],
+  providers: [PersonServiceClient, NapsterServiceClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
