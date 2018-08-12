@@ -3,10 +3,10 @@ import {Track} from '../models/Track';
 
 @Component({
   selector: 'app-results-list',
-  templateUrl: './results-list.component.html',
-  styleUrls: ['./results-list.component.css']
+  templateUrl: './track-results-list.component.html',
+  styleUrls: ['./track-results-list.component.css']
 })
-export class ResultsListComponent implements OnInit {
+export class TrackResultsListComponent implements OnInit {
   @Input()
   resultList;
 

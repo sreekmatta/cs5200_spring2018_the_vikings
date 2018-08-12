@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {NapsterServiceClient} from '../services/napster.service.client';
 import {Track} from '../models/Track';
+import {Playlist} from '../models/Playlist';
+import {Album} from '../models/Album';
+import {Artist} from '../models/Artist';
 
 @Component({
   selector: 'app-search-results',
@@ -12,17 +15,22 @@ export class SearchResultsComponent implements OnInit {
 
   searchQuery;
   tracksResultList: Track[];
+  playlistsResultList: Playlist[];
+  albumsResultList: Album[];
+  artistsResultList: Artist[];
 
   constructor(private route: ActivatedRoute, private napsterService: NapsterServiceClient) {
     this.route.params.subscribe(params => this.searchQuery = params['query']);
-  }
-
-  ngOnInit() {
     this.napsterService.findAllDomainObjectsByName(this.searchQuery)
       .then(response => {
         this.tracksResultList = response.search.data.tracks;
-        console.log(this.tracksResultList);
+        this.playlistsResultList = response.search.data.playlists;
+        this.albumsResultList = response.search.data.albums;
+        this.artistsResultList = response.search.data.artists;
       });
+  }
+
+  ngOnInit() {
   }
 
 }

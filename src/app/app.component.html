@@ -9,15 +9,19 @@
       <div class="input-group">
         <input type="text" class="form-control form-control-sm"
                placeholder="Search for albums, artists, playlists, tracks"
-               aria-label="Search for albums, artists, playlists, tracks" aria-describedby="button-addon2">
+               aria-label="Search for albums, artists, playlists, tracks" aria-describedby="button-addon2"
+               [(ngModel)]="searchQuery">
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+          <button class="btn btn-outline-secondary" type="button" id="button-addon2"
+                  (click)="searchDomainObject(searchQuery)">Search
+          </button>
         </div>
       </div>
       <a #loginComponent class="text-light mh-links" href="/login" *ngIf="!this.person">Login</a>
       <a #registerComponent class="text-light mh-links" href="/register" *ngIf="!this.person">Register</a>
       <div class="dropdown mh-links" *ngIf="this.person">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
           {{this.person.firstName}}
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -29,27 +33,6 @@
           <a class="dropdown-item" href="/playlists">Playlists</a>
         </div>
       </div>
-
-      <!--
-      <form class="form-inline mt-2 mt-md-0">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search By</button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">All</a>
-              <div role="separator" class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Track</a>
-              <a class="dropdown-item" href="#">Album</a>
-              <a class="dropdown-item" href="#">Artist</a>
-              <a class="dropdown-item" href="#">Playlist</a>
-            </div>
-          </div>
-          <input type="text" class="form-control" placeholder="Search" aria-label="Text input with dropdown button">
-        </div>
-        &nbsp;
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-      -->
     </div>
   </nav>
 </header>

@@ -12,7 +12,7 @@ import {PersonServiceClient} from './services/person.service.client';
 import {FormsModule} from '@angular/forms';
 import {NapsterServiceClient} from './services/napster.service.client';
 import { SearchResultsComponent } from './search-results/search-results.component';
-import { ResultsListComponent } from './results-list/results-list.component';
+import { TrackResultsListComponent } from './track-results-list/track-results-list.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { ResultsListComponent } from './results-list/results-list.component';
     HomeComponent,
     MusicHubComponent,
     SearchResultsComponent,
-    ResultsListComponent
+    TrackResultsListComponent
   ],
   imports: [
     BrowserModule,
