@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {PersonServiceClient} from './services/person.service.client';
 import {Person} from './models/Person';
-import {NavigationExtras, Router} from '@angular/router';
+import {ActivatedRoute, NavigationExtras, Router} from '@angular/router';
 import {SearchResultsComponent} from './search-results/search-results.component';
 
 @Component({
@@ -17,13 +17,12 @@ export class AppComponent implements OnInit {
   ng = this;
 
   constructor(private router: Router, private personService: PersonServiceClient) {
-    personService.checkSession()
-      .then(response => this.person = response, error => {
-      });
   }
 
   ngOnInit() {
-
+    this.personService.checkSession()
+      .then(response => this.person = response, error => {
+      });
   }
 
   searchDomainObject(sq) {

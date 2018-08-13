@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {Person} from '../models/Person';
 import {PersonServiceClient} from '../services/person.service.client';
+import {AppComponent} from '../app.component';
 
 @Component({
   selector: 'app-profile',
@@ -15,14 +16,16 @@ export class ProfileComponent implements OnInit {
   successMsg;
 
   constructor(private router: Router,
-              private personService: PersonServiceClient) {
+              private personService: PersonServiceClient, private appComp: AppComponent) {
     this.personService.checkSession().then(
       person => this.person = person, error => alert('could not load user')
     );
+    appComp.ngOnInit();
   }
 
   ngOnInit() {
-    if(!this.person) {
+
+    if (!this.person) {
       this.person = new Person();
     }
   }
