@@ -15,6 +15,7 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import { TrackResultsListComponent } from './track-results-list/track-results-list.component';
 import { CriticComponent } from './critic/critic.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MusicHubComponent,
     SearchResultsComponent,
     TrackResultsListComponent,
-    CriticComponent
+    CriticComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
