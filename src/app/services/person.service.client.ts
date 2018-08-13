@@ -26,8 +26,8 @@ export class PersonServiceClient {
   }
 
 
-  login(email, password) {
-    return fetch(this.LOGIN_URL + '?email=' + email + '&password=' + password);
+  login(username, password) {
+    return fetch(this.LOGIN_URL + '?username=' + username + '&password=' + password);
   }
 
   logout() {
