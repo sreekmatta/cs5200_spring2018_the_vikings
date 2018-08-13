@@ -1,5 +1,5 @@
 <div class="card-columns">
-  <div class="card p-3" *ngFor="let result of resultList">
+  <div class="card" *ngFor="let result of resultList">
     <div class="mh-banner">
       <span class="badge badge-secondary mh-badge" *ngIf="domainObject=='track'">100
         <div (click)="likeTrack(result.id)">
@@ -8,12 +8,15 @@
     </div>
     <img class="card-img-top" src="{{result.images[0].url}}" alt="Card image cap"
          *ngIf="result.images && result.images.length>0"/>
-    <div class="card-body mh-card-body">
+    <div class="card-body">
       <h5 class="card-title">{{result.name}}</h5>
       <p class="card-text">Artist Name and text</p>
     </div>
-    <audio controls="controls">
+    <audio controls="controls" *ngIf="result.previewURL">
       <source src="{{result.previewURL}}" type="audio/mpeg">
     </audio>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
   </div>
 </div>
