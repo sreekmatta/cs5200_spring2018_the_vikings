@@ -13,6 +13,7 @@ import {FormsModule} from '@angular/forms';
 import {NapsterServiceClient} from './services/napster.service.client';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { TrackResultsListComponent } from './track-results-list/track-results-list.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { TrackResultsListComponent } from './track-results-list/track-results-li
   imports: [
     BrowserModule,
     FormsModule,
-    routing
+    routing,
+    FontAwesomeModule
   ],
   providers: [PersonServiceClient, NapsterServiceClient],
   bootstrap: [AppComponent]

@@ -20,17 +20,21 @@ export class SearchResultsComponent implements OnInit {
   artistsResultList: Artist[];
 
   constructor(private route: ActivatedRoute, private napsterService: NapsterServiceClient) {
-    this.route.params.subscribe(params => this.searchQuery = params['query']);
-    this.napsterService.findAllDomainObjectsByName(this.searchQuery)
-      .then(response => {
-        this.tracksResultList = response.search.data.tracks;
-        this.playlistsResultList = response.search.data.playlists;
-        this.albumsResultList = response.search.data.albums;
-        this.artistsResultList = response.search.data.artists;
-      });
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.route.params.subscribe(
+      params => {
+        this.searchQuery = params['query'];
+        this.napsterService.findAllDomainObjectsByName(this.searchQuery)
+          .then(response => {
+            this.tracksResultList = response.search.data.tracks;
+            this.playlistsResultList = response.search.data.playlists;
+            this.albumsResultList = response.search.data.albums;
+            this.artistsResultList = response.search.data.artists;
+          });
+      }
+    );
   }
 
 }

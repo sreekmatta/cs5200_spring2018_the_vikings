@@ -1,5 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {Track} from '../models/Track';
+import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-results-list',
@@ -9,6 +11,7 @@ import {Track} from '../models/Track';
 export class TrackResultsListComponent implements OnInit {
   @Input()
   resultList;
+  faThumbsUp = faThumbsUp;
 
   constructor() {
   }

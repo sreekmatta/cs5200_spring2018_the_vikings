@@ -1,15 +1,14 @@
 <div class="card-columns">
   <div class="card p-3" *ngFor="let result of resultList">
-    <div class="card-body">
+    <div class="mh-banner">
+      <span class="badge badge-secondary mh-badge">100 <fa-icon [icon]="faThumbsUp" class="mh-icon"></fa-icon></span>
+    </div>
+    <div class="card-body mh-card-body">
       <h5 class="card-title">{{result.name}}</h5>
       <p class="card-text">Artist Name and text</p>
     </div>
-    <div class="card-footer">
-      <small class="text-muted">
-        <audio controls="controls">
-          <source src="{{result.previewURL}}" type="audio/mpeg">
-        </audio>
-      </small>
-    </div>
+    <audio controls="controls">
+      <source src="{{result.previewURL}}" type="audio/mpeg">
+    </audio>
   </div>
 </div>

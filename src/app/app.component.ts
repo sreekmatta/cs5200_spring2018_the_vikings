@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {PersonServiceClient} from './services/person.service.client';
 import {Person} from './models/Person';
 import {NavigationExtras, Router} from '@angular/router';
+import {SearchResultsComponent} from './search-results/search-results.component';
 
 @Component({
   selector: 'app-root',
@@ -22,11 +23,11 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
   searchDomainObject(sq) {
     this.router.navigate(['search/' + sq]);
-    this.ngOnInit();
   }
 
 }

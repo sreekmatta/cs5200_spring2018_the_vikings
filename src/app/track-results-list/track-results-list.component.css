@@ -1,0 +1,18 @@
+.mh-badge{
+  padding: 5px;
+}
+
+.mh-icon{
+  font-size: 22px;
+}
+
+.mh-banner{
+  position: absolute;
+  margin-left: 75%;
+  margin-top: -10px;
+}
+
+
+.mh-card-body{
+  padding: 0.25rem;
+}
