@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Person} from '../models/Person';
-import {ArtistServiceClient} from '../services/artist.service.client'
-import {CriticServiceClient} from '../services/critic.service.client'
+import {ArtistServiceClient} from '../services/artist.service.client';
+import {CriticServiceClient} from '../services/critic.service.client';
 import {Router} from '@angular/router';
 
 @Component({
@@ -30,10 +30,10 @@ export class RegisterComponent implements OnInit {
   register(p) {
     if (p.userType === 'Artist') {
       this.artistService.createArtist(p)
-        .then(createdPerson => this.router.navigate(['profile']));
+        .then(createdPerson => this.router.navigate(['dashboard']));
     } else if (p.userType === 'Critic') {
       this.criticService.createCritic(p)
-        .then(createdPerson => this.router.navigate(['profile']));;
+        .then(createdPerson => this.router.navigate(['dashboard']));
     }
   }
 }
