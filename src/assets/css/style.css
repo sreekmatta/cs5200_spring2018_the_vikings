@@ -3,3 +3,15 @@
   margin-bottom: 100px !important;
   padding: 10px;
 }
+
+.mh-col-left{
+  margin-left: -25px;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 30px !important;
+  border-top-right-radius: 30px !important;
+  border-left: orange 10px solid;
+}
+
