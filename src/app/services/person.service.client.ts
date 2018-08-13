@@ -2,11 +2,14 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class PersonServiceClient {
-  REGISTER_URL = 'http://localhost:8080/api/register';
-  USER_URL = 'http://localhost:8080/api/login';
-  LOGIN_URL = 'http://localhost:8080/api/login';
-  LOGOUT_URL = 'http://localhost:8080/api/logout';
-  SESSION_URL = 'http://localhost:8080/api/get/session';
+  DOMAIN_URL = 'http://localhost:8080';
+  REGISTER_URL = this.DOMAIN_URL + '/api/register';
+  USER_URL = this.DOMAIN_URL + '/api/login';
+  LOGIN_URL = this.DOMAIN_URL + '/api/login';
+  LOGOUT_URL = this.DOMAIN_URL + '/api/logout';
+  SESSION_URL = this.DOMAIN_URL + '/api/get/session';
+
+  ARTIST_URL = this.DOMAIN_URL + '/api/artist';
 
   findAllPersons() {
     return fetch(this.USER_URL)
@@ -61,10 +64,17 @@ export class PersonServiceClient {
 //       response => alert('Error thrown by server'));
 // }
 //
-  update(user) {
-    return fetch(this.USER_URL)
-      .then(response => response.json(),
-        response => alert('Error thrown by server'));
+  update(person) {
+    if(person.dType === 'ARTIST') {
+      return fetch(this.ARTIST_URL + '/' + person.id, {
+        body: JSON.stringify(person),
+        method: 'PUT',
+        headers: {
+          'content-type': 'application/json'
+        }
+      })
+        .then(response => response.json(), error => alert('Error occurred while updating artist'));
+    }
   }
 
 //

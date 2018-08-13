@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Person} from '../models/Person';
 import {PersonServiceClient} from '../services/person.service.client';
+import {ArtistServiceClient} from '../services/artist.service.client'
+import {CriticServiceClient} from '../services/critic.service.client'
 import {Router} from '@angular/router';
 
 @Component({
@@ -14,7 +16,9 @@ export class RegisterComponent implements OnInit {
   ng = this;
 
   constructor(private router: Router,
-              private personService: PersonServiceClient) {
+              private personService: PersonServiceClient,
+              private artistService: ArtistServiceClient,
+              private criticService: CriticServiceClient) {
   }
 
   ngOnInit() {
@@ -27,8 +31,11 @@ export class RegisterComponent implements OnInit {
 
   register(p) {
     if (p.userType === 'Artist') {
-      this.personService.createPerson(p)
+      this.artistService.createArtist(p)
         .then(createdPerson => this.router.navigate(['profile']));
+    } else if (p.userType === 'Critic') {
+      this.criticService.createCritic(p)
+        .then(createdPerson => this.router.navigate(['profile']));;
     }
   }
 }
