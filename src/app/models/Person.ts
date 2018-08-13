@@ -7,5 +7,6 @@ export class Person {
   firstName: String;
   lastName: String;
   selfBio: String;
+  dType: String;
   userType: String;
 }

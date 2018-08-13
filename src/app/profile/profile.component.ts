@@ -22,11 +22,14 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.person = new Person();
+    if(!this.person) {
+      this.person = new Person();
+    }
   }
 
   update(p) {
-    if (p.userType === 'Artist') {
+    if (p.dType === 'ARTIST') {
+      console.log(p.dType);
       this.personService.update(p)
         .then(updatedPerson => this.successMsg = 'User details updated successfully');
     }
