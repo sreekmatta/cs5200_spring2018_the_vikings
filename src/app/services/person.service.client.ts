@@ -17,18 +17,6 @@ export class PersonServiceClient {
         response => alert('Error thrown by server'));
   }
 
-  createPerson(person) {
-    return fetch(this.REGISTER_URL + '/' + person.userType, {
-      body: JSON.stringify(person),
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json'
-      }
-    })
-      .then(response => response.json(), error => alert('Error occurred while creating a Person'));
-  }
-
-
   login(username, password) {
     return fetch(this.LOGIN_URL + '?username=' + username + '&password=' + password)
       .then(response => response.json(), error => alert('Can\'t Login'));
@@ -58,12 +46,23 @@ export class PersonServiceClient {
         response => alert('User not found by Id: ' + id));
   }
 
-// findUserByUsername(username, password) {
-//   return fetch(this.USER_URL)
-//     .then(response => response.json(),
-//       response => alert('Error thrown by server'));
-// }
-//
+  /**
+   * @deprecated
+   */
+  createPerson(person) {
+    return fetch(this.REGISTER_URL + '/' + person.userType, {
+      body: JSON.stringify(person),
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+      .then(response => response.json(), error => alert('Error occurred while creating a Person'));
+  }
+
+  /**
+   * @deprecated
+   */
   update(person) {
     if(person.dType === 'ARTIST') {
       return fetch(this.ARTIST_URL + '/' + person.id, {
@@ -77,6 +76,11 @@ export class PersonServiceClient {
     }
   }
 
+// findUserByUsername(username, password) {
+//   return fetch(this.USER_URL)
+//     .then(response => response.json(),
+//       response => alert('Error thrown by server'));
+// }
 //
 // deleteUser(user) {
 //   return fetch(this.USER_URL)

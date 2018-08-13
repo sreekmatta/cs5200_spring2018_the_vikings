@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Person} from '../models/Person';
-import {PersonServiceClient} from '../services/person.service.client';
 import {ArtistServiceClient} from '../services/artist.service.client'
 import {CriticServiceClient} from '../services/critic.service.client'
 import {Router} from '@angular/router';
@@ -16,7 +15,6 @@ export class RegisterComponent implements OnInit {
   ng = this;
 
   constructor(private router: Router,
-              private personService: PersonServiceClient,
               private artistService: ArtistServiceClient,
               private criticService: CriticServiceClient) {
   }

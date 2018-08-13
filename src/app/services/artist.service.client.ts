@@ -17,4 +17,15 @@ export class ArtistServiceClient {
     })
       .then(response => response.json(), error => alert('Error occurred while creating an Artist'));
   }
+
+  updateArtist(artist) {
+    return fetch(this.ARTIST_URL + '/' + artist.id, {
+      body: JSON.stringify(artist),
+      method: 'PUT',
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+      .then(response => response.json(), error => alert('Error occurred while updating artist'));
+  }
 }

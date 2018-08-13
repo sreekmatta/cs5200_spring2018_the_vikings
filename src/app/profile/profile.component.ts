@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {Person} from '../models/Person';
 import {PersonServiceClient} from '../services/person.service.client';
+import {ArtistServiceClient} from '../services/artist.service.client'
+import {CriticServiceClient} from '../services/critic.service.client'
 
 @Component({
   selector: 'app-profile',
@@ -15,7 +17,9 @@ export class ProfileComponent implements OnInit {
   successMsg;
 
   constructor(private router: Router,
-              private personService: PersonServiceClient) {
+              private personService: PersonServiceClient,
+              private artistService: ArtistServiceClient,
+              private criticService: CriticServiceClient) {
     this.personService.checkSession().then(
       person => this.person = person, error => alert('could not load user')
     );
@@ -29,10 +33,11 @@ export class ProfileComponent implements OnInit {
 
   update(p) {
     if (p.dType === 'ARTIST') {
-      console.log(p.dType);
-      this.personService.update(p)
-        .then(updatedPerson => this.successMsg = 'User details updated successfully');
+      this.artistService.updateArtist(p)
+        .then(updatedPerson => this.successMsg = 'Artist details updated successfully');
+    } else if(p.dType === 'CRITIC') {
+      this.criticService.updateCritic(p)
+        .then(updatedPerson => this.successMsg = 'Critic details updated successfully');
     }
   }
-
 }

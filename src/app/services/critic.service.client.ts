@@ -18,4 +18,14 @@ export class CriticServiceClient {
       .then(response => response.json(), error => alert('Error occurred while creating a Critic'));
   }
 
+  updateCritic(critic) {
+    return fetch(this.CRITIC_URL + '/' + critic.id, {
+      body: JSON.stringify(critic),
+      method: 'PUT',
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+      .then(response => response.json(), error => alert('Error occurred while updating artist'));
+  }
 }
