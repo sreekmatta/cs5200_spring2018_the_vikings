@@ -4,6 +4,7 @@ import {Person} from '../models/Person';
 import {PersonServiceClient} from '../services/person.service.client';
 import {ArtistServiceClient} from '../services/artist.service.client'
 import {CriticServiceClient} from '../services/critic.service.client'
+import {AppComponent} from '../app.component';
 
 @Component({
   selector: 'app-profile',
@@ -19,14 +20,17 @@ export class ProfileComponent implements OnInit {
   constructor(private router: Router,
               private personService: PersonServiceClient,
               private artistService: ArtistServiceClient,
-              private criticService: CriticServiceClient) {
+              private criticService: CriticServiceClient,
+              private appComp: AppComponent) {
     this.personService.checkSession().then(
       person => this.person = person, error => alert('could not load user')
     );
+    appComp.ngOnInit();
   }
 
   ngOnInit() {
-    if(!this.person) {
+
+    if (!this.person) {
       this.person = new Person();
     }
   }
