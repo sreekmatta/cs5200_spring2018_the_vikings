@@ -22,7 +22,7 @@
       <div class="dropdown mh-links" *ngIf="this.person">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-          {{this.person.firstName}}
+          {{this.person.username}}
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="/profile">Profile</a>
@@ -31,6 +31,8 @@
           <a class="dropdown-item" href="/albums">Albums</a>
           <a class="dropdown-item" href="/artists">Artists</a>
           <a class="dropdown-item" href="/playlists">Playlists</a>
+          <div role="separator" class="dropdown-divider"></div>
+          <a class="dropdown-item" (click)="logout()">Logout</a>
         </div>
       </div>
     </div>

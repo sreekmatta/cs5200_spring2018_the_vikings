@@ -29,4 +29,10 @@ export class AppComponent implements OnInit {
     this.ngOnInit();
   }
 
+  logout() {
+    this.personService.logout();
+    this.person = null;
+    this.router.navigate(['home']);
+  }
+
 }
