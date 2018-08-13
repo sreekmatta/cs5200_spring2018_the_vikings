@@ -13,6 +13,7 @@ import {FormsModule} from '@angular/forms';
 import {NapsterServiceClient} from './services/napster.service.client';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { TrackResultsListComponent } from './track-results-list/track-results-list.component';
+import { CriticComponent } from './critic/critic.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
@@ -24,7 +25,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HomeComponent,
     MusicHubComponent,
     SearchResultsComponent,
-    TrackResultsListComponent
+    TrackResultsListComponent,
+    CriticComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 export class Person {
   id: Number;
+  username: String;
   email: String;
   password: String;
   confirmPassword: String;

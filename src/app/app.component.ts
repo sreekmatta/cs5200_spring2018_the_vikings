@@ -30,4 +30,10 @@ export class AppComponent implements OnInit {
     this.router.navigate(['search/' + sq]);
   }
 
+  logout() {
+    this.personService.logout();
+    this.person = null;
+    this.router.navigate(['home']);
+  }
+
 }

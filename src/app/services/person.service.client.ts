@@ -26,12 +26,14 @@ export class PersonServiceClient {
   }
 
 
-  login(email, password) {
-    return fetch(this.LOGIN_URL + '?email=' + email + '&password=' + password);
+  login(username, password) {
+    return fetch(this.LOGIN_URL + '?username=' + username + '&password=' + password)
+      .then(response => response.json(), error => alert('Can\'t Login'));
   }
 
   logout() {
-    return fetch(this.LOGOUT_URL);
+    return fetch(this.LOGOUT_URL)
+      .then(response => response.json(), error => alert('Can\'t Logout'));
   }
 
   checkSession() {
