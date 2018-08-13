@@ -1,8 +1,13 @@
 <div class="card-columns">
   <div class="card p-3" *ngFor="let result of resultList">
     <div class="mh-banner">
-      <span class="badge badge-secondary mh-badge">100 <fa-icon [icon]="faThumbsUp" class="mh-icon"></fa-icon></span>
+      <span class="badge badge-secondary mh-badge" *ngIf="domainObject=='track'">100
+        <div (click)="likeTrack(result.id)">
+          <fa-icon [icon]="faThumbsUp" class="mh-icon"></fa-icon>
+        </div></span>
     </div>
+    <img class="card-img-top" src="{{result.images[0].url}}" alt="Card image cap"
+         *ngIf="result.images && result.images.length>0"/>
     <div class="card-body mh-card-body">
       <h5 class="card-title">{{result.name}}</h5>
       <p class="card-text">Artist Name and text</p>

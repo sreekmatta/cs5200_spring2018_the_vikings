@@ -1,6 +1,6 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {Track} from '../models/Track';
-import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import {faThumbsUp} from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -11,13 +11,20 @@ import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 export class TrackResultsListComponent implements OnInit {
   @Input()
   resultList;
+  @Input()
+  domainObject;
+
+
   faThumbsUp = faThumbsUp;
 
   constructor() {
   }
 
   ngOnInit() {
-    console.log('Result' , this.resultList);
+    console.log('Result', this.resultList);
+  }
+
+  likeTrack(trackId) {
   }
 
 }
