@@ -32,8 +32,10 @@ export class NapsterServiceClient {
   }
 
   findTrackById(id) {
-    return fetch(this.NAPSTER_SEARCH_PREFIX + '/tracks/' + id + '?apikey=' + this.NAPSTER_KEY)
-      .then(response => response.json(),
-        response => alert('Error thrown by server'));
+    return this.http.get(this.NAPSTER_SEARCH_PREFIX + '/tracks/' + id + '?apikey=' + this.NAPSTER_KEY);
+  }
+
+  findAlbumImagesById(id) {
+    return this.http.get(this.NAPSTER_SEARCH_PREFIX + '/albums/' + id + '/images' +'?apikey=' + this.NAPSTER_KEY);
   }
 }
