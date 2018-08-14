@@ -28,10 +28,10 @@ export class SearchResultsComponent implements OnInit {
         this.searchQuery = params['query'];
         this.napsterService.findAllDomainObjectsByName(this.searchQuery)
           .subscribe((response) => {
-            this.tracksResultList = response.search.data.tracks;
-            this.playlistsResultList = response.search.data.playlists;
-            this.albumsResultList = response.search.data.albums;
-            this.artistsResultList = response.search.data.artists;
+            this.tracksResultList = response['search'].data.tracks;
+            this.playlistsResultList = response['search'].data.playlists;
+            this.albumsResultList = response['search'].data.albums;
+            this.artistsResultList = response['search'].data.artists;
           });
       }
     );
