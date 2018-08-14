@@ -18,6 +18,7 @@ import { TrackResultsListComponent } from './track-results-list/track-results-li
 import { CriticComponent } from './critic/critic.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { TrackComponent } from './track/track.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     SearchResultsComponent,
     TrackResultsListComponent,
     CriticComponent,
-    DashboardComponent
+    DashboardComponent,
+    TrackComponent
   ],
   imports: [
     BrowserModule,

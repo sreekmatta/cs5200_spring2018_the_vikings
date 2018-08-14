@@ -4,10 +4,11 @@ import {Injectable} from '@angular/core';
 export class NapsterServiceClient {
 
   NAPSTER_KEY = 'YWJkMTA2MTMtN2I5Zi00MDE1LWE1MGQtMzJjNTZhOTFlMzBh';
-  NAPSTER_SEARCH_QUERY_URL = 'http://api.napster.com/v2.2/search?apikey=' + this.NAPSTER_KEY + '&query=';
+  NAPSTER_SEARCH_PREFIX = 'http://api.napster.com/v2.2'
+  NAPSTER_SEARCH_QUERY_URL = this.NAPSTER_SEARCH_PREFIX + '/search?apikey=' + this.NAPSTER_KEY + '&query=';
 
-  findAllDomainObjectsByName(searchString) {
-    return fetch(this.NAPSTER_SEARCH_QUERY_URL + searchString)
+  findAllDomainObjectsByName(searchString, offset = 0) {
+    return fetch(this.NAPSTER_SEARCH_QUERY_URL + searchString + '&offset=' + offset)
       .then(response => response.json(),
         response => alert('Error thrown by server'));
   }
@@ -36,4 +37,9 @@ export class NapsterServiceClient {
         response => alert('Error thrown by server'));
   }
 
+  findTrackById(id) {
+    return fetch(this.NAPSTER_SEARCH_PREFIX + '/tracks/' + id + '?apikey=' + this.NAPSTER_KEY)
+      .then(response => response.json(),
+        response => alert('Error thrown by server'));
+  }
 }

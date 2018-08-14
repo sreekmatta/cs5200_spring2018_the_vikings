@@ -9,10 +9,11 @@
     <img class="card-img-top" src="{{result.images[0].url}}" alt="Card image cap"
          *ngIf="result.images && result.images.length>0"/>
     <div class="card-body">
-      <h5 class="card-title">{{result.name}}</h5>
-      <p class="card-text">Artist Name and text</p>
+      <h5 class="card-title" [routerLink]="['/track', result.id]">{{result.name}}</h5>
+      <p class="card-text">{{result.artistName}}<br/>
+      <span class="card-text small">{{result.albumName}}</span></p>
     </div>
-    <audio controls="controls" *ngIf="result.previewURL">
+    <audio class="text-center" controls="controls" *ngIf="result.previewURL">
       <source src="{{result.previewURL}}" type="audio/mpeg">
     </audio>
     <div class="card-footer">

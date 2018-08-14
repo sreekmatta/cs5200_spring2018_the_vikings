@@ -6,6 +6,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {SearchResultsComponent} from './search-results/search-results.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
+import {TrackComponent} from './track/track.component'
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -14,6 +15,7 @@ const appRoutes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'dashboard', component: DashboardComponent},
+  {path: 'track/:id', component: TrackComponent},
   {path: 'search/:query', component: SearchResultsComponent},
   {path: '**', component: AppComponent}
 ];
