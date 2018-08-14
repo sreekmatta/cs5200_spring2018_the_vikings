@@ -11,23 +11,11 @@ export class ArtistServiceClient {
   }
 
   createArtist(artist) {
-    console.log('using artist service.');
-    return this.http.post(this.ARTIST_URL, {
-      body: JSON.stringify(artist),
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json'
-      }
-    });
+    console.log(artist);
+    return this.http.post(this.ARTIST_URL, artist);
   }
 
   updateArtist(artist) {
-    return this.http.put(this.ARTIST_URL + '/' + artist.id, {
-      body: JSON.stringify(artist),
-      method: 'PUT',
-      headers: {
-        'content-type': 'application/json'
-      }
-    });
+    return this.http.put(this.ARTIST_URL + '/' + artist.id, artist);
   }
 }

@@ -1,7 +1,3 @@
-<div class="hero__backgorund owl-carousel">
-  <div class="item" style="background: #3F51B5"></div>
-</div>
-
 <div class="main__container">
   <div class="contain__wrapper">
     <div class="music__wrapper">
@@ -27,11 +23,13 @@
           </div>
           <div class="music__control">
             <div class="music__button">
-              <span class="button__prev"><fa-icon [icon]="faThumbsUp" class="mh-icon small"></fa-icon></span>
-              <span class="button__pause"><fa-icon [icon]="faStar" class="mh-icon"></fa-icon></span>
-              <span class="button__next"><fa-icon [icon]="faEdit" class="mh-icon small"></fa-icon></span>
+              <div *ngIf="person">
+                <span class="button__prev"><fa-icon [icon]="faThumbsUp" class="mh-icon small"></fa-icon></span>
+                <span class="button__pause"><fa-icon [icon]="faStar" class="mh-icon"></fa-icon></span>
+                <span class="button__next"><fa-icon [icon]="faEdit" class="mh-icon small"></fa-icon></span>
+              </div>
               <br/><br/><br/>
-              <audio style="padding-bottom: 20px" class="text-center" controls="controls" *ngIf="tracksResult.previewURL">
+              <audio style="padding-bottom: 20px" class="text-center" controls="controls">
                 <source src="{{tracksResult?.previewURL}}" type="audio/mpeg">
               </audio>
             </div>

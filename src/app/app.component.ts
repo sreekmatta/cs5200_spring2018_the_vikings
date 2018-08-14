@@ -30,8 +30,13 @@ export class AppComponent implements OnInit {
   }
 
   logout() {
-    this.personService.logout();
-    this.person = null;
+    this.personService.logout().subscribe(
+      res => {
+        this.person = null;
+      },
+      err => {
+        alert("Couldn't logout");
+      });
     this.router.navigate(['home']);
   }
 

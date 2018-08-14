@@ -45,13 +45,7 @@ export class PersonServiceClient {
    * @deprecated
    */
   createPerson(person) {
-    return this.http.post(this.REGISTER_URL + '/' + person.userType, {
-      body: JSON.stringify(person),
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json'
-      }
-    });
+    return this.http.post(this.REGISTER_URL + '/' + person.userType, person);
   }
 
   /**
@@ -59,13 +53,7 @@ export class PersonServiceClient {
    */
   update(person) {
     if (person.dType === 'ARTIST') {
-      return this.http.put(this.ARTIST_URL + '/' + person.id, {
-        body: JSON.stringify(person),
-        method: 'PUT',
-        headers: {
-          'content-type': 'application/json'
-        }
-      });
+      return this.http.put(this.ARTIST_URL + '/' + person.id, person);
     }
   }
 
