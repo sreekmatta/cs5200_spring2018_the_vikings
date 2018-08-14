@@ -30,10 +30,10 @@ export class RegisterComponent implements OnInit {
   register(p) {
     if (p.userType === 'Artist') {
       this.artistService.createArtist(p)
-        .then(createdPerson => this.router.navigate(['dashboard']));
+        .subscribe(createdPerson => this.router.navigate(['dashboard']));
     } else if (p.userType === 'Critic') {
       this.criticService.createCritic(p)
-        .then(createdPerson => this.router.navigate(['dashboard']));
+        .subscribe(createdPerson => this.router.navigate(['dashboard']));
     }
   }
 }
