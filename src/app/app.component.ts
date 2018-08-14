@@ -21,7 +21,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.personService.checkSession().subscribe(
-      (person: Person) => this.person = person, error => alert('could not load user')
+      (person: Person) => this.person = person, error =>  {
+        this.logout();
+        alert('could not load user, logging out!');
+        this.router.navigate(['home/']);
+      }
     );
   }
 

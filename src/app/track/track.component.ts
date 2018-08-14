@@ -5,7 +5,6 @@ import {Track} from '../models/Track';
 import {faThumbsUp, faStar, faEdit} from '@fortawesome/free-solid-svg-icons';
 import {PersonServiceClient} from '../services/person.service.client';
 import {Person} from '../models/Person';
-
 @Component({
   selector: 'app-track',
   templateUrl: './track.component.html',

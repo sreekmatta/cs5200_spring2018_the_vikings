@@ -1,3 +1,4 @@
+<div class="background-image" [ngStyle]="{'background-image': 'url(' + imageURL + ')'}"></div>
 <div class="main__container">
   <div class="contain__wrapper">
     <div class="music__wrapper">
@@ -23,14 +24,14 @@
           </div>
           <div class="music__control">
             <div class="music__button">
-              <div *ngIf="person">
+              <div *ngIf="person && person.dType === 'CRITIC'">
                 <span class="button__prev"><fa-icon [icon]="faThumbsUp" class="mh-icon small"></fa-icon></span>
                 <span class="button__pause"><fa-icon [icon]="faStar" class="mh-icon"></fa-icon></span>
                 <span class="button__next"><fa-icon [icon]="faEdit" class="mh-icon small"></fa-icon></span>
               </div>
               <br/><br/><br/>
               <audio style="padding-bottom: 20px" class="text-center" controls="controls">
-                <source src="{{tracksResult?.previewURL}}" type="audio/mpeg">
+                <source src="{{tracksResult.previewURL}}" type="audio/mpeg">
               </audio>
             </div>
           </div>
