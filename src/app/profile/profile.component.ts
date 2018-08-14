@@ -36,10 +36,10 @@ export class ProfileComponent implements OnInit {
   update(p) {
     if (p.dType === 'ARTIST') {
       this.artistService.updateArtist(p)
-        .then(updatedPerson => this.successMsg = 'Artist details updated successfully');
+        .subscribe(updatedPerson => this.successMsg = 'Artist details updated successfully');
     } else if (p.dType === 'CRITIC') {
       this.criticService.updateCritic(p)
-        .then(updatedPerson => this.successMsg = 'Critic details updated successfully');
+        .subscribe(updatedPerson => this.successMsg = 'Critic details updated successfully');
     }
   }
 }

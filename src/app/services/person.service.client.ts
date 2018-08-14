@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 
 
 @Injectable()
@@ -14,12 +14,11 @@ export class PersonServiceClient {
 
   ARTIST_URL = this.DOMAIN_URL + '/api/artist';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   findAllPersons() {
-    return this.http.get(this.USER_URL)
-      .subscribe(response => response,
-        response => alert('Error thrown by server'));
+    return this.http.get(this.USER_URL);
   }
 
   login(username, password) {
@@ -27,8 +26,7 @@ export class PersonServiceClient {
   }
 
   logout() {
-    return this.http.get(this.LOGOUT_URL)
-      .subscribe(response => response , error => alert('Can\'t Logout'));
+    return this.http.get(this.LOGOUT_URL);
   }
 
   checkSession() {
@@ -36,31 +34,24 @@ export class PersonServiceClient {
   }
 
   findUserByEmail(email) {
-    return fetch(this.USER_URL + '/email/' + email)
-      .then(response => response.json(),
-        response => alert('Error thrown by server'));
+    return this.http.get(this.USER_URL + '/email/' + email);
   }
 
   findUserById(id) {
-    return fetch(this.USER_URL + '/' + id, {
-      credentials: 'include', // include, same-origin, *omit
-    })
-      .then(response => response.json(),
-        response => alert('User not found by Id: ' + id));
+    return this.http.get(this.USER_URL + '/' + id);
   }
 
   /**
    * @deprecated
    */
   createPerson(person) {
-    return fetch(this.REGISTER_URL + '/' + person.userType, {
+    return this.http.post(this.REGISTER_URL + '/' + person.userType, {
       body: JSON.stringify(person),
       method: 'POST',
       headers: {
         'content-type': 'application/json'
       }
-    })
-      .then(response => response.json(), error => alert('Error occurred while creating a Person'));
+    });
   }
 
   /**
@@ -68,14 +59,13 @@ export class PersonServiceClient {
    */
   update(person) {
     if (person.dType === 'ARTIST') {
-      return fetch(this.ARTIST_URL + '/' + person.id, {
+      return this.http.put(this.ARTIST_URL + '/' + person.id, {
         body: JSON.stringify(person),
         method: 'PUT',
         headers: {
           'content-type': 'application/json'
         }
-      })
-        .then(response => response.json(), error => alert('Error occurred while updating artist'));
+      });
     }
   }
 

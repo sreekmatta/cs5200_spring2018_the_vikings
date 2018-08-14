@@ -27,7 +27,7 @@ export class SearchResultsComponent implements OnInit {
       params => {
         this.searchQuery = params['query'];
         this.napsterService.findAllDomainObjectsByName(this.searchQuery)
-          .then(response => {
+          .subscribe((response) => {
             this.tracksResultList = response.search.data.tracks;
             this.playlistsResultList = response.search.data.playlists;
             this.albumsResultList = response.search.data.albums;

@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class CriticServiceClient {
@@ -6,26 +7,27 @@ export class CriticServiceClient {
   DOMAIN_URL = 'http://localhost:8080';
   CRITIC_URL = this.DOMAIN_URL + '/api/critic';
 
+  constructor(private http: HttpClient) {
+  }
+
   createCritic(critic) {
     console.log('using critic service.');
-    return fetch(this.CRITIC_URL, {
+    return this.http.post(this.CRITIC_URL, {
       body: JSON.stringify(critic),
       method: 'POST',
       headers: {
         'content-type': 'application/json'
       }
-    })
-      .then(response => response.json(), error => alert('Error occurred while creating a Critic'));
+    });
   }
 
   updateCritic(critic) {
-    return fetch(this.CRITIC_URL + '/' + critic.id, {
+    return this.http.put(this.CRITIC_URL + '/' + critic.id, {
       body: JSON.stringify(critic),
       method: 'PUT',
       headers: {
         'content-type': 'application/json'
       }
-    })
-      .then(response => response.json(), error => alert('Error occurred while updating artist'));
+    });
   }
 }
