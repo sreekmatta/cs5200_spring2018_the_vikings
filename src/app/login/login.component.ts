@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PersonServiceClient} from '.././services/person.service.client';
 import {Person} from '.././models/Person';
 import {Router} from '@angular/router';
@@ -21,9 +21,15 @@ export class LoginComponent implements OnInit {
     this.person = new Person();
   }
 
-  login() {
-    this.personService.login(this.person.username, this.person.password)
-      .then(login => this.router.navigate(['dashboard']));
+  login(p) {
+    this.personService.login(p.username, p.password)
+      .subscribe((message: String) => {
+          if (message === 'OK') {
+            this.router.navigate(['dashboard']);
+          } else {
+            alert('Invalid credentials');
+          }
+        },
+        error => alert('Invalid credentials!'));
   }
-
 }

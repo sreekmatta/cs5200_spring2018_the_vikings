@@ -1,7 +1,10 @@
 import {Injectable} from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 
 @Injectable()
 export class PersonServiceClient {
+
   DOMAIN_URL = 'http://localhost:8080';
   REGISTER_URL = this.DOMAIN_URL + '/api/register';
   USER_URL = this.DOMAIN_URL + '/api/login';
@@ -11,25 +14,25 @@ export class PersonServiceClient {
 
   ARTIST_URL = this.DOMAIN_URL + '/api/artist';
 
+  constructor(private http: HttpClient) { }
+
   findAllPersons() {
-    return fetch(this.USER_URL)
-      .then(response => response.json(),
+    return this.http.get(this.USER_URL)
+      .subscribe(response => response,
         response => alert('Error thrown by server'));
   }
 
   login(username, password) {
-    return fetch(this.LOGIN_URL + '?username=' + username + '&password=' + password)
-      .then(response => response.json(), error => alert('Can\'t Login'));
+    return this.http.get(this.LOGIN_URL + '?username=' + username + '&password=' + password);
   }
 
   logout() {
-    return fetch(this.LOGOUT_URL)
-      .then(response => response.json(), error => alert('Can\'t Logout'));
+    return this.http.get(this.LOGOUT_URL)
+      .subscribe(response => response , error => alert('Can\'t Logout'));
   }
 
   checkSession() {
-    return fetch(this.SESSION_URL)
-      .then(response => response.json());
+    return this.http.get(this.SESSION_URL);
   }
 
   findUserByEmail(email) {
@@ -64,7 +67,7 @@ export class PersonServiceClient {
    * @deprecated
    */
   update(person) {
-    if(person.dType === 'ARTIST') {
+    if (person.dType === 'ARTIST') {
       return fetch(this.ARTIST_URL + '/' + person.id, {
         body: JSON.stringify(person),
         method: 'PUT',

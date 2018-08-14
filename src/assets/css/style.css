@@ -14,4 +14,8 @@
   border-top-right-radius: 30px !important;
   border-left: orange 10px solid;
 }
+.mh-side-heading{
+  padding: .5rem 1rem;
+  font-size: small;
+}
 

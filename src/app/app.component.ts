@@ -20,9 +20,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.personService.checkSession()
-      .then(response => this.person = response, error => {
-      });
+    this.personService.checkSession().subscribe(
+      (person: Person) => this.person = person, error => alert('could not load user')
+    );
   }
 
   searchDomainObject(sq) {
