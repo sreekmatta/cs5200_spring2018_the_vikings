@@ -18,6 +18,7 @@ import { TrackResultsListComponent } from './track-results-list/track-results-li
 import { CriticComponent } from './critic/critic.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BrowserModule,
     FormsModule,
     routing,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [ArtistServiceClient, CriticServiceClient, PersonServiceClient, NapsterServiceClient],
   bootstrap: [AppComponent]

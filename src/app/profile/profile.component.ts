@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {Person} from '../models/Person';
 import {PersonServiceClient} from '../services/person.service.client';
-import {ArtistServiceClient} from '../services/artist.service.client'
-import {CriticServiceClient} from '../services/critic.service.client'
+import {ArtistServiceClient} from '../services/artist.service.client';
+import {CriticServiceClient} from '../services/critic.service.client';
 import {AppComponent} from '../app.component';
 
 @Component({
@@ -20,12 +20,10 @@ export class ProfileComponent implements OnInit {
   constructor(private router: Router,
               private personService: PersonServiceClient,
               private artistService: ArtistServiceClient,
-              private criticService: CriticServiceClient,
-              private appComp: AppComponent) {
-    this.personService.checkSession().then(
-      person => this.person = person, error => alert('could not load user')
+              private criticService: CriticServiceClient) {
+    this.personService.checkSession().subscribe(
+      (person: Person) => this.person = person, error => alert('could not load user')
     );
-    appComp.ngOnInit();
   }
 
   ngOnInit() {
@@ -39,7 +37,7 @@ export class ProfileComponent implements OnInit {
     if (p.dType === 'ARTIST') {
       this.artistService.updateArtist(p)
         .then(updatedPerson => this.successMsg = 'Artist details updated successfully');
-    } else if(p.dType === 'CRITIC') {
+    } else if (p.dType === 'CRITIC') {
       this.criticService.updateCritic(p)
         .then(updatedPerson => this.successMsg = 'Critic details updated successfully');
     }
