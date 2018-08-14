@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {NapsterServiceClient} from '../services/napster.service.client';
 import {Track} from '../models/Track';
-import {faThumbsUp, faThumbsDown, faStar} from '@fortawesome/free-solid-svg-icons';
+import {faThumbsUp, faStar, faEdit} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-track',
@@ -15,7 +15,7 @@ export class TrackComponent implements OnInit {
   imageURL: any;
   tracksResult: Track;
   faThumbsUp = faThumbsUp;
-  faThumbsDown = faThumbsDown;
+  faEdit = faEdit;
   faStar = faStar;
 
   constructor(private route: ActivatedRoute,
