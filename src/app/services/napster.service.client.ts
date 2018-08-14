@@ -8,36 +8,27 @@ export class NapsterServiceClient {
   NAPSTER_SEARCH_PREFIX = 'http://api.napster.com/v2.2';
   NAPSTER_SEARCH_QUERY_URL = this.NAPSTER_SEARCH_PREFIX + '/search?apikey=' + this.NAPSTER_KEY + '&query=';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  findAllDomainObjectsByName(searchString, offset = 0) {
-    return fetch(this.NAPSTER_SEARCH_QUERY_URL + searchString + '&offset=' + offset)
-      .then(response => response.json(),
-        response => alert('Error thrown by server'));
+  findAllDomainObjectsByName(searchString) {
+    return this.http.get(this.NAPSTER_SEARCH_QUERY_URL + searchString);
   }
 
   findTrackByName(searchString) {
-    return fetch(this.NAPSTER_SEARCH_QUERY_URL + searchString + '&type=track')
-      .then(response => response.json(),
-        response => alert('Error thrown by server'));
+    return this.http.get(this.NAPSTER_SEARCH_QUERY_URL + searchString + '&type=track');
   }
 
   findPlaylistByName(searchString) {
-    return fetch(this.NAPSTER_SEARCH_QUERY_URL + searchString + '&type=playlist')
-      .then(response => response.json(),
-        response => alert('Error thrown by server'));
+    return this.http.get(this.NAPSTER_SEARCH_QUERY_URL + searchString + '&type=playlist');
   }
 
   findAlbumByName(searchString) {
-    return fetch(this.NAPSTER_SEARCH_QUERY_URL + searchString + '&type=album')
-      .then(response => response.json(),
-        response => alert('Error thrown by server'));
+    return this.http.get(this.NAPSTER_SEARCH_QUERY_URL + searchString + '&type=album');
   }
 
   findArtistByName(searchString) {
-    return fetch(this.NAPSTER_SEARCH_QUERY_URL + searchString + '&type=artist')
-      .then(response => response.json(),
-        response => alert('Error thrown by server'));
+    return this.http.get(this.NAPSTER_SEARCH_QUERY_URL + searchString + '&type=artist');
   }
 
   findTrackById(id) {
