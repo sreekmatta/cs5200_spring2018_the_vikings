@@ -25,13 +25,14 @@
           {{this.person.username}}
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="/profile">Profile</a>
+          <a class="dropdown-item" href="/dashboard">Dashboard</a>
           <div role="separator" class="dropdown-divider"></div>
           <a class="dropdown-item" href="/tracks">Tracks</a>
           <a class="dropdown-item" href="/albums">Albums</a>
           <a class="dropdown-item" href="/artists">Artists</a>
           <a class="dropdown-item" href="/playlists">Playlists</a>
           <div role="separator" class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/profile">Profile</a>
           <a class="dropdown-item" (click)="logout()">Logout</a>
         </div>
       </div>

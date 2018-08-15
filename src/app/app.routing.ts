@@ -6,7 +6,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {SearchResultsComponent} from './search-results/search-results.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
-import {TrackComponent} from './track/track.component'
+import {TrackComponent} from './track/track.component';
+import {CreateTrackFormComponent} from './create-track-form/create-track-form.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -17,6 +18,7 @@ const appRoutes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
   {path: 'track/:id', component: TrackComponent},
   {path: 'search/:query', component: SearchResultsComponent},
+  {path: 'create/track', component: CreateTrackFormComponent},
   {path: '**', component: AppComponent}
 ];
 export const routing = RouterModule.forRoot(appRoutes);
