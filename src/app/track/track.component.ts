@@ -43,4 +43,8 @@ export class TrackComponent implements OnInit {
 
   }
 
+  likeTrack() {
+    console.log("You like this track no "+ this.trackId.split(".").pop());
+  }
+
 }

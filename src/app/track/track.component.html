@@ -25,7 +25,7 @@
           <div class="music__control">
             <div class="music__button">
               <div *ngIf="person && person.dType === 'CRITIC'">
-                <span class="button__prev"><fa-icon [icon]="faThumbsUp" class="mh-icon small"></fa-icon></span>
+                <span (click)="likeTrack()" class="button__prev"><fa-icon [icon]="faThumbsUp" class="mh-icon small"></fa-icon></span>
                 <span class="button__pause"><fa-icon [icon]="faStar" class="mh-icon"></fa-icon></span>
                 <span class="button__next"><fa-icon [icon]="faEdit" class="mh-icon small"></fa-icon></span>
               </div>
