@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Injectable, Input, OnInit} from '@angular/core';
 import {faPlusCircle} from '@fortawesome/free-solid-svg-icons';
 import {Track} from '../models/Track';
 import {NapsterServiceClient} from '../services/napster.service.client';
@@ -11,6 +11,7 @@ import {Person} from '../models/Person';
   templateUrl: './dashboard-right-pane.component.html',
   styleUrls: ['./dashboard-right-pane.component.css']
 })
+@Injectable()
 export class DashboardRightPaneComponent implements OnInit {
   @Input()
   domainObject;

@@ -48,7 +48,7 @@ import {TrackServiceClient} from './services/track.service.client';
     FontAwesomeModule,
     HttpClientModule
   ],
-  providers: [ArtistServiceClient, CriticServiceClient, PersonServiceClient, NapsterServiceClient, UploadFileService, TrackServiceClient],
+  providers: [DashboardRightPaneComponent, ArtistServiceClient, CriticServiceClient, PersonServiceClient, NapsterServiceClient, UploadFileService, TrackServiceClient],
   bootstrap: [AppComponent]
 })
 export class AppModule {
