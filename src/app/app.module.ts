@@ -22,7 +22,8 @@ import {TrackComponent} from './track/track.component';
 import {HttpClientModule} from '@angular/common/http';
 import {CreateTrackFormComponent} from './create-track-form/create-track-form.component';
 import {UploadFileService} from './upload/upload-file.service';
-import { DashboardRightPaneComponent } from './dashboard-right-pane/dashboard-right-pane.component';
+import {DashboardRightPaneComponent} from './dashboard-right-pane/dashboard-right-pane.component';
+import {TrackServiceClient} from './services/track.service.client';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { DashboardRightPaneComponent } from './dashboard-right-pane/dashboard-ri
     FontAwesomeModule,
     HttpClientModule
   ],
-  providers: [ArtistServiceClient, CriticServiceClient, PersonServiceClient, NapsterServiceClient, UploadFileService],
+  providers: [ArtistServiceClient, CriticServiceClient, PersonServiceClient, NapsterServiceClient, UploadFileService, TrackServiceClient],
   bootstrap: [AppComponent]
 })
 export class AppModule {
