@@ -5,6 +5,8 @@ import {Track} from '../models/Track';
 import {faThumbsUp, faStar, faEdit} from '@fortawesome/free-solid-svg-icons';
 import {PersonServiceClient} from '../services/person.service.client';
 import {Person} from '../models/Person';
+import {CriticServiceClient} from '../services/critic.service.client'
+
 @Component({
   selector: 'app-track',
   templateUrl: './track.component.html',
@@ -15,6 +17,7 @@ export class TrackComponent implements OnInit {
   person: Person;
   trackId: String;
   imageURL: any;
+  previewURL: any;
   tracksResult: Track;
   faThumbsUp = faThumbsUp;
   faEdit = faEdit;
@@ -22,7 +25,8 @@ export class TrackComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private napsterService: NapsterServiceClient,
-              private personService: PersonServiceClient) {
+              private personService: PersonServiceClient,
+              private criticService: CriticServiceClient) {
     this.personService.checkSession().subscribe(
       (person: Person) => this.person = person, error => alert('could not load user')
     );
@@ -30,6 +34,7 @@ export class TrackComponent implements OnInit {
     this.napsterService.findTrackById(this.trackId)
       .subscribe(response => {
           this.tracksResult = response['tracks'][0];
+          this.previewURL = response['tracks'][0].previewURL;
           this.napsterService.findAlbumImagesById(response['tracks'][0].albumId)
             .subscribe(response => {
                 this.imageURL = response['images'][0].url;
@@ -40,11 +45,10 @@ export class TrackComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
 
   likeTrack() {
-    console.log("You like this track no "+ this.trackId.split(".").pop());
+    this.criticService.likeTrack(this.trackId.split(".").pop(), this.person);
   }
 
 }
