@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import {CriticServiceClient} from '../services/critic.service.client';
+import {ActivatedRoute} from '@angular/router';
+import {Track} from '../models/Track';
 
 @Component({
   selector: 'app-rate-form',
@@ -8,7 +11,10 @@ import { Component, OnInit } from '@angular/core';
 export class RateFormComponent implements OnInit {
 
   rating: any;
-  constructor() {
+  @Input() track: Track;
+
+  constructor(private route: ActivatedRoute,
+              private criticService: CriticServiceClient) {
     this.rating = 0;
   }
 
@@ -16,7 +22,13 @@ export class RateFormComponent implements OnInit {
   }
 
   rateTrack() {
-    console.log('A rating of ' + this.rating);
+    console.log(this.track.id);
+    this.track.id = this.track.id.split(".").pop();
+    this.criticService.rateTrack(this.rating, this.track)
+      .subscribe(response => {
+        console.log(response);
+      },
+        error => alert('Couldn\'t rate this track'));
   }
 
 }

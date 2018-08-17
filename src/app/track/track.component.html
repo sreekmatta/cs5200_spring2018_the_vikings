@@ -32,7 +32,7 @@
               </div>
               <br/><br/><br/>
               <audio style="padding-bottom: 20px" class="text-center" controls="controls">
-                <source [src]="previewURL" type="audio/mpeg">
+                <source *ngIf="previewURL" [src]="previewURL" type="audio/mpeg">
               </audio>
             </div>
           </div>
@@ -53,7 +53,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <app-rate-form></app-rate-form>
+        <app-rate-form  *ngIf="tracksResult" [track]="tracksResult"></app-rate-form>
       </div>
     </div>
   </div>

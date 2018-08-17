@@ -8,6 +8,7 @@ export class CriticServiceClient {
   CRITIC_URL = this.DOMAIN_URL + '/api/critic';
   LIKE_URL = this.DOMAIN_URL + '/api/critic/like';
   UNLIKE_URL = this.DOMAIN_URL + '/api/critic/unlike';
+  RATE_URL = this.DOMAIN_URL + '/api/critic/rate';
 
   constructor(private http: HttpClient) {
   }
@@ -30,5 +31,9 @@ export class CriticServiceClient {
 
   unlikeTrack(tid) {
     return this.http.delete(this.UNLIKE_URL + '/' + tid);
+  }
+
+  rateTrack(rating, track) {
+    return this.http.post(this.RATE_URL + '/' + rating, track);
   }
 }
