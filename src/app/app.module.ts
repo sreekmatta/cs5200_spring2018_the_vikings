@@ -24,6 +24,7 @@ import {CreateTrackFormComponent} from './create-track-form/create-track-form.co
 import {UploadFileService} from './upload/upload-file.service';
 import {DashboardRightPaneComponent} from './dashboard-right-pane/dashboard-right-pane.component';
 import {TrackServiceClient} from './services/track.service.client';
+import { RateFormComponent } from './rate-form/rate-form.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {TrackServiceClient} from './services/track.service.client';
     DashboardComponent,
     TrackComponent,
     CreateTrackFormComponent,
-    DashboardRightPaneComponent
+    DashboardRightPaneComponent,
+    RateFormComponent
   ],
   imports: [
     BrowserModule,

@@ -223,3 +223,8 @@ body {
   filter: blur(5px);
 }
 
+.rate {
+  margin-left: 110%;
+  padding: 5% 5% 5% 5%;
+  margin-top: 50%;
+}
