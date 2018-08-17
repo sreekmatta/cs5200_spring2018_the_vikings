@@ -21,10 +21,7 @@ export class DashboardRightPaneComponent implements OnInit {
   @Input()
   domainObject;
 
-  tracksResultList: Track[];
-  playlistsResultList: Playlist[];
-  albumResultList: Album[];
-  artistsResultList: Artist[];
+  resultList;
 
   person: Person;
   faPlusCircle = faPlusCircle;
@@ -37,15 +34,21 @@ export class DashboardRightPaneComponent implements OnInit {
     this.personService.checkSession().subscribe(
       (person: Person) => {
         this.person = person;
-        this.tracksService.findTracksByArtistId(this.person.id).subscribe((tracks: Track[]) => {
-          this.tracksResultList = tracks;
-        });
-        this.albumService.findAlbumsByArtistId(this.person.id).subscribe((albums: Album[]) => {
-          this.albumResultList = albums;
-        });
-        this.playlistsService.findPlaylistsByPersonId(this.person.id).subscribe((playlists: Playlist[]) => {
-          this.playlistsResultList = playlists;
-        });
+        if (this.domainObject === 'track') {
+          this.tracksService.findTracksByArtistId(this.person.id).subscribe((tracks: Track[]) => {
+            this.resultList = tracks;
+          });
+        }
+        if (this.domainObject === 'album') {
+          this.albumService.findAlbumsByArtistId(this.person.id).subscribe((albums: Album[]) => {
+            this.resultList = albums;
+          });
+        }
+        if (this.domainObject === 'playlist') {
+          this.playlistsService.findPlaylistsByPersonId(this.person.id).subscribe((playlists: Playlist[]) => {
+            this.resultList = playlists;
+          });
+        }
       }, error => alert('could not load user')
     );
   }

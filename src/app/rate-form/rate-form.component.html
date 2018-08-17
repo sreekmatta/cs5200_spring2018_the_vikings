@@ -1,0 +1,8 @@
+
+<div class="music__control">
+  <input type="range" min="0" max="10" [(ngModel)]="this.rating" step="1" />
+  <h1 style="margin-left: 50%;">{{this.rating}}</h1>
+  <div class="form-group row">
+    <button class="btn btn-success" style="margin-left: 47%; margin-top: 5%" [disabled]="this.rating == 0" (click)="rateTrack()">Rate</button>
+  </div>
+</div>

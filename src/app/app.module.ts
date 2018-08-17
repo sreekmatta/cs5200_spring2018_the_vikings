@@ -24,10 +24,11 @@ import {CreateTrackFormComponent} from './create-track-form/create-track-form.co
 import {UploadFileService} from './upload/upload-file.service';
 import {DashboardRightPaneComponent} from './dashboard-right-pane/dashboard-right-pane.component';
 import {TrackServiceClient} from './services/track.service.client';
-import { CreatePlaylistAlbumFormComponent } from './create-playlist-album-form/create-playlist-album-form.component';
-import { FriendsComponent } from './friends/friends.component';
+import {CreatePlaylistAlbumFormComponent} from './create-playlist-album-form/create-playlist-album-form.component';
+import {FriendsComponent} from './friends/friends.component';
 import {AlbumServiceClient} from './services/album.service.client';
 import {PlaylistServiceClient} from './services/playlist.service.client';
+import {RateFormComponent} from './rate-form/rate-form.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {PlaylistServiceClient} from './services/playlist.service.client';
     CreateTrackFormComponent,
     DashboardRightPaneComponent,
     CreatePlaylistAlbumFormComponent,
-    FriendsComponent
+    FriendsComponent,
+    RateFormComponent
   ],
   imports: [
     BrowserModule,
