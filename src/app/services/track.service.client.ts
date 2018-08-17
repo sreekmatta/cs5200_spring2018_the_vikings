@@ -15,4 +15,8 @@ export class TrackServiceClient {
     return this.http.get(this.TRACK_URL + 'artist/' + artistId);
   }
 
+  findTrackById(trackId) {
+    return this.http.get(this.TRACK_URL + 'id/' + trackId);
+  }
+
 }
