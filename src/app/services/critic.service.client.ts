@@ -25,10 +25,10 @@ export class CriticServiceClient {
   }
 
   likeTrack(tid, track) {
-    return this.http.post(this.LIKE_URL, track);
+    return this.http.post(this.LIKE_URL + '/' + tid, track);
   }
 
-  unlikeTrack(tid, critic) {
-    return this.http.post(this.UNLIKE_URL + '/' + tid, critic);
+  unlikeTrack(tid) {
+    return this.http.delete(this.UNLIKE_URL + '/' + tid);
   }
 }

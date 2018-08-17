@@ -38,43 +38,42 @@ export class TrackComponent implements OnInit {
           this.tracksResult = response['tracks'][0];
           this.previewURL = response['tracks'][0].previewURL;
           this.napsterService.findAlbumImagesById(response['tracks'][0].albumId)
-            .subscribe(response => {
-                this.imageURL = response['images'][0].url;
+            .subscribe(resp => {
+                this.imageURL = resp['images'][0].url;
               },
               error => alert('Server couldn\'t find an album art!'));
         },
         error => alert('Server threw an error!'));
-     this.criticService.likeStatus(this.trackId.split(".").pop())
+     this.criticService.likeStatus(this.trackId.split('.').pop())
        .subscribe(resp => {
-           console.log(resp);
+           this.like = resp;
          },
          err => {
-           alert("Couldn't like Item");
+           alert('Couldn\'t determine like');
        });
   }
 
   ngOnInit() {
-    console.log(this.like);
   }
 
   likeTrack() {
-    this.tracksResult.id = parseInt(this.trackId.split(".").pop());
-    this.criticService.likeTrack(this.trackId.split(".").pop(), this.tracksResult)
+    this.tracksResult.id = parseInt(this.trackId.split('.').pop());
+    this.criticService.likeTrack(this.trackId.split('.').pop(), this.tracksResult)
       .subscribe(resp => {
-        console.log("Hello")
+        this.like = true;
       },
         err => {
-          alert("Couldn't like Item");
+          alert('Couldn\'t like Item');
       });
   }
 
   unlikeTrack() {
-    this.criticService.unlikeTrack(this.trackId.split(".").pop(), this.person)
+    this.criticService.unlikeTrack(this.trackId.split('.').pop())
       .subscribe(resp => {
-          console.log("Hello")
+          this.like = false;
         },
         err => {
-          alert("Couldn't like Item");
+          alert('Couldn\'t unlike Item');
         });
   }
 
