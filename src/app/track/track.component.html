@@ -16,23 +16,28 @@
               <span class="icon-right"><i class="zmdi zmdi-apps"></i></span>
               <div class="title owl-carousel">
                 <div class="item">
-                  <div class="song__name">{{tracksResult?.name}}</div>
-                  <p class="album__name">{{tracksResult?.artistName}}</p>
+                  <div class="song__name" *ngIf="tracksResult.name">{{tracksResult.name}}</div>
+                  <p class="album__name" *ngIf="tracksResult.artistName">{{tracksResult.artistName}}</p>
                 </div>
               </div>
             </div>
           </div>
           <div class="music__control">
             <div class="music__button">
-              <div *ngIf="person && person.dType === 'CRITIC'">
-                <span (click)="likeTrack()" class="button__prev" *ngIf="!like"><fa-icon [icon]="faThumbsUp" class="mh-icon small"></fa-icon></span>
-                <span (click)="unlikeTrack()" class="button__prev_unlike" *ngIf="like"><fa-icon [icon]="faThumbsUp" class="mh-icon small"></fa-icon></span>
-                <span class="button__pause" data-toggle="modal" data-target="#exampleModal"><fa-icon [icon]="faStar" class="mh-icon"></fa-icon></span>
+              <div *ngIf="person && person.dType==='CRITIC'">
+                <span (click)="likeTrack()" class="button__prev" *ngIf="!like"><fa-icon [icon]="faThumbsUp"
+                                                                                        class="mh-icon small"></fa-icon></span>
+                <span (click)="unlikeTrack()" class="button__prev_unlike" *ngIf="like"><fa-icon [icon]="faThumbsUp"
+                                                                                                class="mh-icon small"></fa-icon></span>
+                <span class="button__pause" data-toggle="modal" data-target="#exampleModal"><fa-icon [icon]="faStar"
+                                                                                                     class="mh-icon"></fa-icon></span>
                 <span class="button__next"><fa-icon [icon]="faEdit" class="mh-icon small"></fa-icon></span>
               </div>
               <br/><br/><br/>
               <audio style="padding-bottom: 20px" class="text-center" controls="controls">
                 <source *ngIf="previewURL" [src]="previewURL" type="audio/mpeg">
+              <audio *ngIf="previewURL" style="padding-bottom: 20px" class="text-center" controls="controls">
+                <source [src]="previewURL" type="audio/mpeg">
               </audio>
             </div>
           </div>
@@ -47,7 +52,8 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content rate">
       <div class="modal-header">
-        <h1 class="modal-title" style="font-size: 22px" id="exampleModalLabel"><b>Rate {{tracksResult?.name}} by {{tracksResult?.artistName}}</b></h1>
+        <h1 class="modal-title" style="font-size: 22px" id="exampleModalLabel"><b>Rate {{tracksResult.name}} by
+          {{tracksResult.artistName}}</b></h1>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

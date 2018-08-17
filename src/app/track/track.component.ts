@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {NapsterServiceClient} from '../services/napster.service.client';
 import {Track} from '../models/Track';
@@ -45,7 +45,7 @@ export class TrackComponent implements OnInit {
       , error => alert('could not load user'));
     this.trackService.findTrackById(this.trackId.split('.').pop())
       .subscribe(
-        response => {
+        (response: Track) => {
           if (response) {
             if (response.napsterId) {
               this.fetchFromNapster('tra.' + response.napsterId);
@@ -83,11 +83,11 @@ export class TrackComponent implements OnInit {
     this.tracksResult.id = parseInt(this.trackId.split('.').pop());
     this.criticService.likeTrack(this.trackId.split('.').pop(), this.tracksResult)
       .subscribe(resp => {
-        this.like = true;
-      },
+          this.like = true;
+        },
         err => {
           alert('Couldn\'t like Item');
-      });
+        });
   }
 
   unlikeTrack() {
