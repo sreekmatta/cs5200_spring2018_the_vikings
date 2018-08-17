@@ -16,10 +16,9 @@ import {AlbumServiceClient} from '../services/album.service.client';
   templateUrl: './dashboard-right-pane.component.html',
   styleUrls: ['./dashboard-right-pane.component.css']
 })
-@Injectable()
+
 export class DashboardRightPaneComponent implements OnInit {
-  @Input()
-  domainObject;
+  @Input() domainObject: string;
 
   resultList;
 

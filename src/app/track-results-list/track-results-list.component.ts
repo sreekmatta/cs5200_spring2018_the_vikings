@@ -19,7 +19,6 @@ export class TrackResultsListComponent implements OnInit {
   domainObject;
 
   faPlusCircle = faPlusCircle;
-
   faThumbsUp = faThumbsUp;
 
   constructor(private router: Router, private dashboardPane: DashboardRightPaneComponent) {
@@ -34,6 +33,7 @@ export class TrackResultsListComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.domainObject);
   }
 
   likeTrack(trackId) {

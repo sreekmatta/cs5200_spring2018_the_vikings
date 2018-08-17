@@ -16,7 +16,7 @@
     <!--</div>-->
     <img class="card-img-top" *ngIf="result.images && result.images.length>0" src="{{result.images[0].url}}" alt="Card image cap"/>
     <div class="card-body">
-      <h5 class="card-title" [routerLink]="['/' + result.type, result.id]">{{result.name}}</h5>
+      <h5 class="card-title" *ngIf="domainObject" [routerLink]="['/' + domainObject, result.id]">{{result.name}}</h5>
       <p class="card-text">{{result.artistName}}<br/>
         <span class="card-text small">{{result.albumName}}</span></p>
     </div>
