@@ -22,6 +22,8 @@ export class TrackComponent implements OnInit {
   faThumbsUp = faThumbsUp;
   faEdit = faEdit;
   faStar = faStar;
+  like: any;
+  saveTrack: Track;
 
   constructor(private route: ActivatedRoute,
               private napsterService: NapsterServiceClient,
@@ -42,13 +44,38 @@ export class TrackComponent implements OnInit {
               error => alert('Server couldn\'t find an album art!'));
         },
         error => alert('Server threw an error!'));
+     this.criticService.likeStatus(this.trackId.split(".").pop())
+       .subscribe(resp => {
+           console.log(resp);
+         },
+         err => {
+           alert("Couldn't like Item");
+       });
   }
 
   ngOnInit() {
+    console.log(this.like);
   }
 
   likeTrack() {
-    this.criticService.likeTrack(this.trackId.split(".").pop(), this.person);
+    this.tracksResult.id = parseInt(this.trackId.split(".").pop());
+    this.criticService.likeTrack(this.trackId.split(".").pop(), this.tracksResult)
+      .subscribe(resp => {
+        console.log("Hello")
+      },
+        err => {
+          alert("Couldn't like Item");
+      });
+  }
+
+  unlikeTrack() {
+    this.criticService.unlikeTrack(this.trackId.split(".").pop(), this.person)
+      .subscribe(resp => {
+          console.log("Hello")
+        },
+        err => {
+          alert("Couldn't like Item");
+        });
   }
 
 }
