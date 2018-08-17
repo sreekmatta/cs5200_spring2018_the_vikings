@@ -16,8 +16,8 @@
               <span class="icon-right"><i class="zmdi zmdi-apps"></i></span>
               <div class="title owl-carousel">
                 <div class="item">
-                  <div class="song__name" *ngIf="tracksResult.name">{{tracksResult.name}}</div>
-                  <p class="album__name" *ngIf="tracksResult.artistName">{{tracksResult.artistName}}</p>
+                  <div class="song__name" *ngIf="tracksResult">{{tracksResult.name}}</div>
+                  <p class="album__name" *ngIf="tracksResult">{{tracksResult.artistName}}</p>
                 </div>
               </div>
             </div>
@@ -36,8 +36,6 @@
               <br/><br/><br/>
               <audio style="padding-bottom: 20px" class="text-center" controls="controls">
                 <source *ngIf="previewURL" [src]="previewURL" type="audio/mpeg">
-              <audio *ngIf="previewURL" style="padding-bottom: 20px" class="text-center" controls="controls">
-                <source [src]="previewURL" type="audio/mpeg">
               </audio>
             </div>
           </div>
@@ -52,7 +50,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content rate">
       <div class="modal-header">
-        <h1 class="modal-title" style="font-size: 22px" id="exampleModalLabel"><b>Rate {{tracksResult.name}} by
+        <h1 class="modal-title" *ngIf="tracksResult" style="font-size: 22px" id="exampleModalLabel"><b>Rate {{tracksResult.name}} by
           {{tracksResult.artistName}}</b></h1>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>

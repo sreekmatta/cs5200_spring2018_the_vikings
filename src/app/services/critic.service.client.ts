@@ -36,4 +36,12 @@ export class CriticServiceClient {
   rateTrack(rating, track) {
     return this.http.post(this.RATE_URL + '/' + rating, track);
   }
+
+  updateRateTrack(rating, track) {
+    return this.http.put(this.RATE_URL + '/' + rating, track);
+  }
+
+  rateStatus(tid) {
+    return this.http.get(this.RATE_URL + '/' + tid);
+  }
 }

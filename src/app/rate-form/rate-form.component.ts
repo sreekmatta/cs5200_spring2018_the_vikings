@@ -11,6 +11,8 @@ import {Track} from '../models/Track';
 export class RateFormComponent implements OnInit {
 
   rating: any;
+  prevRating: any;
+  rated: any;
   @Input() track: Track;
 
   constructor(private route: ActivatedRoute,
@@ -19,16 +21,38 @@ export class RateFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.rated = false;
+    if (this.track) {
+      this.rateStatus(this.track.id);
+    }
   }
 
   rateTrack() {
-    console.log(this.track.id);
     this.track.id = this.track.id.split(".").pop();
     this.criticService.rateTrack(this.rating, this.track)
       .subscribe(response => {
-        console.log(response);
+        this.rated = true;
       },
         error => alert('Couldn\'t rate this track'));
+  }
+
+  updateRateTrack() {
+    this.track.id = this.track.id.split(".").pop();
+    this.criticService.updateRateTrack(this.rating, this.track)
+      .subscribe(response => {
+          this.rated = true;
+        },
+        error => alert('Couldn\'t re-rate this track'));
+  }
+
+  rateStatus(tid) {
+    this.criticService.rateStatus(tid.split(".").pop())
+      .subscribe(response => {
+        if (response) {
+          this.rating = response.points;
+          this.prevRating = response.points;
+        }
+      }, error => alert("No rate status."));
   }
 
 }
