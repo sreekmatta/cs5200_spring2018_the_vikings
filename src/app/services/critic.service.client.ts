@@ -20,7 +20,6 @@ export class CriticServiceClient {
   }
 
   likeTrack(tid, critic) {
-    console.log(this.LIKE_URL + '/' + tid);
-    return this.http.post(this.LIKE_URL + '/' + tid, critic);
+    return this.http.post(this.LIKE_URL , critic);
   }
 }

@@ -34,7 +34,6 @@ export class TrackResultsListComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('Result', this.resultList);
   }
 
   likeTrack(trackId) {

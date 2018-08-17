@@ -30,7 +30,7 @@ export class CreateTrackFormComponent implements OnInit {
     this.progress.percentage = 0;
 
     this.currentFileUpload = this.selectedFiles.item(0);
-    this.uploadService.pushFileToStorage(this.currentFileUpload, this.track)
+    this.uploadService.pushTrackToStorage(this.currentFileUpload, this.track)
       .subscribe(event => {
         if (event.type === HttpEventType.UploadProgress) {
           this.progress.percentage = Math.round(100 * event.loaded / event.total);

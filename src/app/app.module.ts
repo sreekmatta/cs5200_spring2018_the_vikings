@@ -24,6 +24,10 @@ import {CreateTrackFormComponent} from './create-track-form/create-track-form.co
 import {UploadFileService} from './upload/upload-file.service';
 import {DashboardRightPaneComponent} from './dashboard-right-pane/dashboard-right-pane.component';
 import {TrackServiceClient} from './services/track.service.client';
+import { CreatePlaylistAlbumFormComponent } from './create-playlist-album-form/create-playlist-album-form.component';
+import { FriendsComponent } from './friends/friends.component';
+import {AlbumServiceClient} from './services/album.service.client';
+import {PlaylistServiceClient} from './services/playlist.service.client';
 
 @NgModule({
   declarations: [
@@ -39,7 +43,9 @@ import {TrackServiceClient} from './services/track.service.client';
     DashboardComponent,
     TrackComponent,
     CreateTrackFormComponent,
-    DashboardRightPaneComponent
+    DashboardRightPaneComponent,
+    CreatePlaylistAlbumFormComponent,
+    FriendsComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +54,9 @@ import {TrackServiceClient} from './services/track.service.client';
     FontAwesomeModule,
     HttpClientModule
   ],
-  providers: [DashboardRightPaneComponent, ArtistServiceClient, CriticServiceClient, PersonServiceClient, NapsterServiceClient, UploadFileService, TrackServiceClient],
+  providers: [DashboardRightPaneComponent, ArtistServiceClient, CriticServiceClient,
+    PersonServiceClient, NapsterServiceClient, UploadFileService, TrackServiceClient,
+    AlbumServiceClient, PlaylistServiceClient],
   bootstrap: [AppComponent]
 })
 export class AppModule {
