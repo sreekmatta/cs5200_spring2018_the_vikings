@@ -34,6 +34,9 @@ export class RegisterComponent implements OnInit {
     } else if (p.userType === 'Critic') {
       this.criticService.createCritic(p)
         .subscribe(createdPerson => this.router.navigate(['dashboard']));
+    } else if (p.userType === 'Advertiser') {
+      this.crit(p)
+        .subscribe(createdPerson => this.router.navigate(['dashboard']));
     }
   }
 }
