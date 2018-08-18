@@ -35,6 +35,7 @@ import { AlbumComponent } from './album/album.component';
 import { ArtistComponent } from './artist/artist.component';
 import { TrackToPlaylistComponent } from './track-to-playlist/track-to-playlist.component';
 import { PlaylistComponent } from './playlist/playlist.component';
+import {AdvertiserServiceClient} from './services/advertiser.service.client';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,7 @@ import { PlaylistComponent } from './playlist/playlist.component';
   ],
   providers: [DashboardRightPaneComponent, ArtistServiceClient, CriticServiceClient,
     PersonServiceClient, NapsterServiceClient, UploadFileService, TrackServiceClient,
-    AlbumServiceClient, PlaylistServiceClient],
+    AlbumServiceClient, PlaylistServiceClient, AdvertiserServiceClient],
   bootstrap: [AppComponent]
 })
 export class AppModule {
