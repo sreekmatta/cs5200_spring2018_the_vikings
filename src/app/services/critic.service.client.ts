@@ -9,6 +9,7 @@ export class CriticServiceClient {
   LIKE_URL = this.DOMAIN_URL + '/api/critic/like';
   UNLIKE_URL = this.DOMAIN_URL + '/api/critic/unlike';
   RATE_URL = this.DOMAIN_URL + '/api/critic/rate';
+  REVIEW_URL = this.DOMAIN_URL + '/api/critic/review';
 
   constructor(private http: HttpClient) {
   }
@@ -43,5 +44,21 @@ export class CriticServiceClient {
 
   rateStatus(tid) {
     return this.http.get(this.RATE_URL + '/' + tid);
+  }
+
+  reviewAlbum(album) {
+    return this.http.post(this.REVIEW_URL, album);
+  }
+
+  reviewStatus(aid) {
+    return this.http.get(this.REVIEW_URL + '/' + aid);
+  }
+
+  updateReviewAlbum(album) {
+    return this.http.put(this.REVIEW_URL, album);
+  }
+
+  deleteReviewAlbum(rid) {
+    return this.http.delete(this.REVIEW_URL + '/' + rid);
   }
 }

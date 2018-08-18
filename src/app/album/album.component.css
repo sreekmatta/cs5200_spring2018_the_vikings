@@ -410,8 +410,8 @@ body {
   cursor: pointer;
   -webkit-transition:all 300ms ease;
   transition:all 300ms ease;
-  margin-bottom: 30px;
-  margin-left: 250px;
+  margin-bottom: 10px;
+  margin-left: 280px;
 }
 
 .button__prev_unlike{
@@ -470,5 +470,5 @@ body {
 .review {
   margin-left: 110%;
   padding: 5% 5% 5% 5%;
-  margin-top: 25%;
+  margin-top: 15%;
 }
