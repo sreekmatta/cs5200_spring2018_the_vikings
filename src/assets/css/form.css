@@ -1,0 +1,9 @@
+.modal{
+  margin-top: 5%;
+}
+
+.modal-header,.modal-footer{
+  visibility: hidden;
+  height: 0;
+  padding: 0;
+}

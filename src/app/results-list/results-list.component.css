@@ -11,3 +11,7 @@
   margin-left: 90.5%;
   margin-top: 0px;
 }
+
+div.modal-content{
+  margin-top: 100px !important;
+}

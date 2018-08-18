@@ -14,7 +14,7 @@ export class CreatePlaylistAlbumFormComponent implements OnInit {
 
   @Input() domainObject;
 
-  playlistOrAlbum: {};
+  playlistOrAlbum;
   selectedFiles: FileList;
   currentFileUpload: File;
   progress: { percentage: number } = {percentage: 0};

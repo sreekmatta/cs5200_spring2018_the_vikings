@@ -4,13 +4,12 @@ import {faPlusCircle, faThumbsUp} from '@fortawesome/free-solid-svg-icons';
 import {Router} from '@angular/router';
 import {DashboardRightPaneComponent} from '../dashboard-right-pane/dashboard-right-pane.component';
 
-
 @Component({
   selector: 'app-results-list',
-  templateUrl: './track-results-list.component.html',
-  styleUrls: ['./track-results-list.component.css']
+  templateUrl: './results-list.component.html',
+  styleUrls: ['./results-list.component.css']
 })
-export class TrackResultsListComponent implements OnInit {
+export class ResultsListComponent implements OnInit {
   @Input()
   resultList;
   @Input()
@@ -30,17 +29,30 @@ export class TrackResultsListComponent implements OnInit {
         }
       }
     }, true);
+    console.log(this.resultList);
+
   }
 
   ngOnInit() {
-    console.log(this.domainObject);
+    this.toggleCssInjector();
+    console.log(this.resultList);
   }
 
   likeTrack(trackId) {
   }
 
-  refreshList() {
+  refreshList(htmlInsideModal) {
+    htmlInsideModal.close();
     this.dashboardPane.ngOnInit();
   }
 
+  toggleCssInjector() {
+    const head = document.head;
+    const link = document.createElement('link');
+    link.id = 'injected';
+    link.type = 'text/css';
+    link.rel = 'stylesheet';
+    link.href = 'assets/css/form.css';
+    head.appendChild(link);
+  }
 }

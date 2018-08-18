@@ -14,7 +14,7 @@ import {CriticServiceClient} from './services/critic.service.client';
 import {FormsModule} from '@angular/forms';
 import {NapsterServiceClient} from './services/napster.service.client';
 import {SearchResultsComponent} from './search-results/search-results.component';
-import {TrackResultsListComponent} from './track-results-list/track-results-list.component';
+import {ResultsListComponent} from './results-list/results-list.component';
 import {CriticComponent} from './critic/critic.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {DashboardComponent} from './dashboard/dashboard.component';
@@ -29,6 +29,7 @@ import {FriendsComponent} from './friends/friends.component';
 import {AlbumServiceClient} from './services/album.service.client';
 import {PlaylistServiceClient} from './services/playlist.service.client';
 import {RateFormComponent} from './rate-form/rate-form.component';
+import {ModalModule} from 'angular-custom-modal';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import {RateFormComponent} from './rate-form/rate-form.component';
     HomeComponent,
     MusicHubComponent,
     SearchResultsComponent,
-    TrackResultsListComponent,
+    ResultsListComponent,
     CriticComponent,
     DashboardComponent,
     TrackComponent,
@@ -52,6 +53,7 @@ import {RateFormComponent} from './rate-form/rate-form.component';
   imports: [
     BrowserModule,
     FormsModule,
+    ModalModule,
     routing,
     FontAwesomeModule,
     HttpClientModule

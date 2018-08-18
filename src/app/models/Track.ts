@@ -1,3 +1,5 @@
+import {Artist} from './Artist';
+
 export class Track {
   id: Number;
   napsterId: Number;
@@ -5,4 +7,5 @@ export class Track {
   playbackSeconds: Number;
   previewURL: String;
   artistName: String;
+  artist: Artist;
 }
