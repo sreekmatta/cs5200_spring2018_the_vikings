@@ -32,6 +32,8 @@ import {RateFormComponent} from './rate-form/rate-form.component';
 import {ModalModule} from 'angular-custom-modal';
 import { ReviewFormComponent } from './review-form/review-form.component';
 import { AlbumComponent } from './album/album.component';
+import { TrackToPlaylistComponent } from './track-to-playlist/track-to-playlist.component';
+import { PlaylistComponent } from './playlist/playlist.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { AlbumComponent } from './album/album.component';
     FriendsComponent,
     RateFormComponent,
     ReviewFormComponent,
-    AlbumComponent
+    AlbumComponent,
+    TrackToPlaylistComponent,
+    PlaylistComponent
   ],
   imports: [
     BrowserModule,

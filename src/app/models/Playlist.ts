@@ -10,4 +10,5 @@ export class Playlist {
   description: String;
   tracks: Track [];
   createdBy: Person;
+  imageURL: String;
 }

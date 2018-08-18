@@ -1,8 +1,10 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {Track} from '../models/Track';
-import {faPlusCircle, faThumbsUp} from '@fortawesome/free-solid-svg-icons';
+import {faPlusCircle, faPlus, faThumbsUp} from '@fortawesome/free-solid-svg-icons';
 import {Router} from '@angular/router';
 import {DashboardRightPaneComponent} from '../dashboard-right-pane/dashboard-right-pane.component';
+import {PersonServiceClient} from '../services/person.service.client';
+import {Person} from '../models/Person';
 
 @Component({
   selector: 'app-results-list',
@@ -17,10 +19,12 @@ export class ResultsListComponent implements OnInit {
   @Input()
   domainObject;
 
+  person;
   faPlusCircle = faPlusCircle;
   faThumbsUp = faThumbsUp;
+  faPlus = faPlus;
 
-  constructor(private router: Router, private dashboardPane: DashboardRightPaneComponent) {
+  constructor(private router: Router, private dashboardPane: DashboardRightPaneComponent, private personService: PersonServiceClient) {
     document.addEventListener('play', function (e) {
       const audios = document.getElementsByTagName('audio');
       for (let i = 0, len = audios.length; i < len; i++) {
@@ -29,13 +33,13 @@ export class ResultsListComponent implements OnInit {
         }
       }
     }, true);
-    console.log(this.resultList);
 
   }
 
   ngOnInit() {
-    this.toggleCssInjector();
-    console.log(this.resultList);
+    this.personService.checkSession().subscribe(
+      (person: Person) => this.person = person);
+        this.toggleCssInjector();
   }
 
   likeTrack(trackId) {

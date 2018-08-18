@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {NapsterServiceClient} from '../services/napster.service.client';
 import {PersonServiceClient} from '../services/person.service.client';
