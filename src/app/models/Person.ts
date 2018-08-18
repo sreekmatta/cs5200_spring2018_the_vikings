@@ -1,12 +1,12 @@
 export class Person {
   id: Number;
-  username: String;
-  email: String;
-  password: String;
-  confirmPassword: String;
-  firstName: String;
-  lastName: String;
-  selfBio: String;
-  dType: String;
-  userType: String;
+  username: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  firstName: string;
+  lastName: string;
+  selfBio: string;
+  dType: string;
+  userType: string;
 }
