@@ -32,6 +32,7 @@ import {RateFormComponent} from './rate-form/rate-form.component';
 import {ModalModule} from 'angular-custom-modal';
 import { ReviewFormComponent } from './review-form/review-form.component';
 import { AlbumComponent } from './album/album.component';
+import { ArtistComponent } from './artist/artist.component';
 import { TrackToPlaylistComponent } from './track-to-playlist/track-to-playlist.component';
 import { PlaylistComponent } from './playlist/playlist.component';
 
@@ -55,6 +56,7 @@ import { PlaylistComponent } from './playlist/playlist.component';
     RateFormComponent,
     ReviewFormComponent,
     AlbumComponent,
+    ArtistComponent,
     TrackToPlaylistComponent,
     PlaylistComponent
   ],

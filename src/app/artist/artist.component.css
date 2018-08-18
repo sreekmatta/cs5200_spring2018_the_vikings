@@ -298,8 +298,8 @@ body {
 
 .music__wrapper{
   position:relative;
-  width:700px;
-  height:350px;
+  width:1000px;
+  height:500px;
   background: #19181E;
   margin:0 auto;
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.8);
@@ -309,8 +309,8 @@ body {
 .left__panel{
   position: absolute;
   left: 0;
-  width:350px;
-  height:350px;
+  width:500px;
+  height:500px;
   background: #4729A2;
   cursor: w-resize;
   -webkit-transform:translateX(0);
@@ -322,8 +322,8 @@ body {
 .right__panel{
   position: absolute;
   right: 0;
-  width:350px;
-  height:350px;
+  width:500px;
+  height:500px;
   background: #19181E;
   -webkit-transform:translateX(0);
   transform:translateX(0);
@@ -333,7 +333,7 @@ body {
 
 .header{
   position: relative;
-  width:350px;
+  width:500px;
   height:120px;
   background: #09090B;
 }

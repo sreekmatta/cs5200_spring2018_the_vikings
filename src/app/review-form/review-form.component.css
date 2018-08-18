@@ -1,3 +1,7 @@
 .sep {
   margin-top: 5%;
 }
+
+.modal-backdrop  {
+  z-index: 0 !important;
+}

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {NapsterServiceClient} from '../services/napster.service.client';
 import {Track} from '../models/Track';
-import {faThumbsUp, faStar, faEdit} from '@fortawesome/free-solid-svg-icons';
+import {faThumbsUp, faStar} from '@fortawesome/free-solid-svg-icons';
 import {PersonServiceClient} from '../services/person.service.client';
 import {TrackServiceClient} from '../services/track.service.client';
 import {Person} from '../models/Person';
@@ -21,7 +21,6 @@ export class TrackComponent implements OnInit {
   previewURL: any;
   tracksResult: Track;
   faThumbsUp = faThumbsUp;
-  faEdit = faEdit;
   faStar = faStar;
   like: any;
 
@@ -47,8 +46,8 @@ export class TrackComponent implements OnInit {
       .subscribe(
         (response: Track) => {
           if (response) {
-            if (response.napsterId) {
-              this.fetchFromNapster('tra.' + response.napsterId);
+            if (response['napsterId']) {
+              this.fetchFromNapster('tra.' + response['napsterId']);
             } else {
               this.tracksResult = response;
               this.previewURL = response.previewURL;
