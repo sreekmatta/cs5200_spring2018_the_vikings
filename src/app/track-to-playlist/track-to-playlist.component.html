@@ -1,0 +1,7 @@
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let userPlaylist of playlists">{{userPlaylist.name}}
+    <button type="button" class="btn btn-light" (click)="addTrackToPlaylist(userPlaylist.id)">
+      <i class="fa fa-plus"></i>
+    </button>
+  </li>
+</ul>

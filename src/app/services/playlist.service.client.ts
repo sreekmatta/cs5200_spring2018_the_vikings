@@ -8,10 +8,15 @@ export class PlaylistServiceClient {
   DOMAIN_URL = 'http://localhost:8080';
   PLAYLIST_URL = this.DOMAIN_URL + '/api/playlist/';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   findPlaylistsByPersonId(personId) {
     return this.http.get(this.PLAYLIST_URL + 'person/' + personId);
+  }
+
+  findPlaylistById(personId) {
+    return this.http.get(this.PLAYLIST_URL + personId);
   }
 
 }

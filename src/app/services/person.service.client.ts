@@ -12,6 +12,9 @@ export class PersonServiceClient {
   LOGOUT_URL = this.DOMAIN_URL + '/api/logout';
   SESSION_URL = this.DOMAIN_URL + '/api/get/session';
 
+  TRACK_UNDER_PLAYLIST = this.DOMAIN_URL + '/api/create/track/for/playlist/PLAYLIST_ID';
+  NAPSTER_TRACK_UNDER_PLAYLIST = this.DOMAIN_URL + '/api/create/napster/track/for/playlist/PLAYLIST_ID';
+
   ARTIST_URL = this.DOMAIN_URL + '/api/artist';
 
   constructor(private http: HttpClient) {
@@ -39,6 +42,19 @@ export class PersonServiceClient {
 
   findUserById(id) {
     return this.http.get(this.USER_URL + '/' + id);
+  }
+
+  addTrackToPlaylistForPerson(playlistId, track) {
+    const createPlaylistForPerson = this.TRACK_UNDER_PLAYLIST
+      .replace('PLAYLIST_ID', playlistId);
+    return this.http.post(createPlaylistForPerson, track);
+  }
+
+  addNapsterTrackToPlaylistForPerson(playlistId, track) {
+    track['id'] = 0;
+    const createPlaylistForPerson = this.NAPSTER_TRACK_UNDER_PLAYLIST
+      .replace('PLAYLIST_ID', playlistId);
+    return this.http.post(createPlaylistForPerson, track);
   }
 
   /**
