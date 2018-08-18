@@ -1,0 +1,60 @@
+<div class="background-image" [ngStyle]="{'background-image': 'url(' + imageURL + ')'}"></div>
+<div class="main__container">
+  <div class="contain__wrapper">
+    <div class="music__wrapper">
+      <div class="left__panel">
+        <div class="cover owl-carousel">
+          <div class="item">
+            <img style="width: 100%" [src]="imageURL"/>
+          </div>
+        </div>
+      </div>
+      <div class="right__panel">
+        <div class="music__info__wrapper">
+          <div class="header">
+            <div class="icon__wrapper">
+              <span class="icon-right"><i class="zmdi zmdi-apps"></i></span>
+              <div class="title owl-carousel">
+                <div class="item">
+                  <div class="song__name" *ngIf="albumsResult">{{albumsResult.name}}</div>
+                  <p class="album__name" *ngIf="albumsResult">{{albumsResult.artistName}}</p>
+                  <div class="music__button">
+                    <div *ngIf="person && person.dType==='CRITIC'">
+                      <span class="button__next" data-toggle="modal" data-target="#reviewModal"><fa-icon [icon]="faEdit" class="mh-icon small"></fa-icon></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="background: #3e4147; width: 400px;  height: 230px; overflow: auto; padding-left: 10px; padding-top: 5px;
+                      padding-bottom: 5px">
+            <ul *ngIf="tracks">
+              <li style="color: #5bc0de; font-size: 1.15em; font-weight: 300; letter-spacing: 1px;
+              text-transform: uppercase;" *ngFor="let track of tracks; let i = index"
+                  [attr.data-index]="i" (click)="goToTrackPage(track.id)">{{i+1}}. {{track.name}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content review">
+      <div class="modal-header">
+        <h1 class="modal-title" *ngIf="albumsResult" style="font-size: 22px" id="reviewModalLabel"><b>Review {{albumsResult.name}} by
+          {{albumsResult.artistName}}</b></h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-review-form  *ngIf="albumsResult" [album]="albumsResult"></app-review-form>
+      </div>
+    </div>
+  </div>
+</div>
