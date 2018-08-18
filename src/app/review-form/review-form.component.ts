@@ -29,7 +29,7 @@ export class ReviewFormComponent implements OnInit {
   }
 
   reviewStatus() {
-    this.criticService.reviewStatus(this.album.id.split(".").pop())
+    this.criticService.reviewStatus(Number(this.album.id.toString().split('.').pop()))
       .subscribe(response => {
         if (response) {
           this.title = response['title'];
@@ -44,7 +44,7 @@ export class ReviewFormComponent implements OnInit {
   }
 
   reviewAlbum() {
-    this.album.id = this.album.id.split(".").pop();
+    this.album.id = Number(this.album.id.toString().split('.').pop());
     this.album['reviews'] = [{title: this.title, text: this.text}];
     this.criticService.reviewAlbum(this.album)
       .subscribe(response => {
@@ -56,7 +56,7 @@ export class ReviewFormComponent implements OnInit {
   }
 
   updateReviewAlbum() {
-    this.album.id = this.album.id.split(".").pop();
+    this.album.id = Number(this.album.id.toString().split('.').pop());
     this.album['reviews'] = [{title: this.title, text: this.text}];
     this.criticService.updateReviewAlbum(this.album)
       .subscribe(response => {

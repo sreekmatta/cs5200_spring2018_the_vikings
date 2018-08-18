@@ -28,7 +28,7 @@ export class RateFormComponent implements OnInit {
   }
 
   rateTrack() {
-    this.track.id = this.track.id.split('.').pop();
+    this.track.id = Number(this.track.id.toString().split('.').pop());
     this.criticService.rateTrack(this.rating, this.track)
       .subscribe(response => {
         this.rated = true;
@@ -37,7 +37,7 @@ export class RateFormComponent implements OnInit {
   }
 
   updateRateTrack() {
-    this.track.id = this.track.id.split('.').pop();
+    this.track.id = Number(this.track.id.toString().split('.').pop());
     this.criticService.updateRateTrack(this.rating, this.track)
       .subscribe(response => {
           this.rated = true;
@@ -46,11 +46,11 @@ export class RateFormComponent implements OnInit {
   }
 
   rateStatus(tid) {
-    this.criticService.rateStatus(tid.split('.').pop())
+    this.criticService.rateStatus(Number(tid.toString().split('.').pop()))
       .subscribe(response => {
         if (response) {
-          this.rating = response.points;
-          this.prevRating = response.points;
+          this.rating = response['points'];
+          this.prevRating = response['points'];
         }
       }, error => alert('No rate status.'));
   }
