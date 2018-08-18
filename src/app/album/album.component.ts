@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {faEdit} from '@fortawesome/free-solid-svg-icons';
 import {ActivatedRoute, Router} from '@angular/router';
 import {NapsterServiceClient} from '../services/napster.service.client';
 import {PersonServiceClient} from '../services/person.service.client';
@@ -7,7 +8,6 @@ import {AlbumServiceClient} from '../services/album.service.client';
 import {Person} from '../models/Person';
 import {Album} from '../models/Album';
 import {Track} from '../models/Track';
-import {faEdit} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-album',
@@ -58,8 +58,8 @@ export class AlbumComponent implements OnInit {
       .subscribe(response => {
           this.albumsResult = response['albums'][0];
           this.napsterService.getAlbumTracks(this.albumsResult['links']['tracks']['href'])
-            .subscribe(response => {
-              this.tracks = response['tracks'];
+            .subscribe(resp => {
+              this.tracks = resp['tracks'];
             }, error => alert('Couldn\'t find tracks'));
           this.napsterService.findAlbumImagesById(albumId)
             .subscribe(resp => {

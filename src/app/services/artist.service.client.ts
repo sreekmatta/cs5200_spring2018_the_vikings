@@ -18,4 +18,8 @@ export class ArtistServiceClient {
   updateArtist(artist) {
     return this.http.put(this.ARTIST_URL + '/' + artist.id, artist);
   }
+
+  findArtistById(aid) {
+    return this.http.get(this.ARTIST_URL + '/' + aid);
+  }
 }

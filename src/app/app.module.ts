@@ -32,6 +32,7 @@ import {RateFormComponent} from './rate-form/rate-form.component';
 import {ModalModule} from 'angular-custom-modal';
 import { ReviewFormComponent } from './review-form/review-form.component';
 import { AlbumComponent } from './album/album.component';
+import { ArtistComponent } from './artist/artist.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { AlbumComponent } from './album/album.component';
     FriendsComponent,
     RateFormComponent,
     ReviewFormComponent,
-    AlbumComponent
+    AlbumComponent,
+    ArtistComponent
   ],
   imports: [
     BrowserModule,
