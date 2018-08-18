@@ -35,7 +35,15 @@ export class NapsterServiceClient {
     return this.http.get(this.NAPSTER_SEARCH_PREFIX + '/tracks/' + id + '?apikey=' + this.NAPSTER_KEY);
   }
 
+  findAlbumById(id) {
+    return this.http.get(this.NAPSTER_SEARCH_PREFIX + '/albums/' + id + '?apikey=' + this.NAPSTER_KEY);
+  }
+
   findAlbumImagesById(id) {
     return this.http.get(this.NAPSTER_SEARCH_PREFIX + '/albums/' + id + '/images' +'?apikey=' + this.NAPSTER_KEY);
+  }
+
+  getAlbumTracks(url) {
+    return this.http.get(url + '?apikey=' + this.NAPSTER_KEY);
   }
 }

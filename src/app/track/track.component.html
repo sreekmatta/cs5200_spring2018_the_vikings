@@ -29,9 +29,7 @@
                                                                                         class="mh-icon small"></fa-icon></span>
                 <span (click)="unlikeTrack()" class="button__prev_unlike" *ngIf="like"><fa-icon [icon]="faThumbsUp"
                                                                                                 class="mh-icon small"></fa-icon></span>
-                <span class="button__pause" data-toggle="modal" data-target="#exampleModal"><fa-icon [icon]="faStar"
-                                                                                                     class="mh-icon"></fa-icon></span>
-                <span class="button__next"><fa-icon [icon]="faEdit" class="mh-icon small"></fa-icon></span>
+                <span class="button__next" data-toggle="modal" data-target="#rateModal"><fa-icon [icon]="faStar" class="mh-icon small"></fa-icon></span>
               </div>
               <br/><br/><br/>
               <audio style="padding-bottom: 20px" class="text-center" controls="controls">
@@ -45,12 +43,12 @@
   </div>
 </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="rateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content rate">
       <div class="modal-header">
-        <h1 class="modal-title" *ngIf="tracksResult" style="font-size: 22px" id="exampleModalLabel"><b>Rate {{tracksResult.name}} by
+        <h1 class="modal-title" *ngIf="tracksResult" style="font-size: 22px" id="rateModalLabel"><b>Rate {{tracksResult.name}} by
           {{tracksResult.artistName}}</b></h1>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>

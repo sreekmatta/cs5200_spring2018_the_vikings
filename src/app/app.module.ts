@@ -29,6 +29,8 @@ import {FriendsComponent} from './friends/friends.component';
 import {AlbumServiceClient} from './services/album.service.client';
 import {PlaylistServiceClient} from './services/playlist.service.client';
 import {RateFormComponent} from './rate-form/rate-form.component';
+import { ReviewFormComponent } from './review-form/review-form.component';
+import { AlbumComponent } from './album/album.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import {RateFormComponent} from './rate-form/rate-form.component';
     DashboardRightPaneComponent,
     CreatePlaylistAlbumFormComponent,
     FriendsComponent,
-    RateFormComponent
+    RateFormComponent,
+    ReviewFormComponent,
+    AlbumComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,16 @@
+<div class="form-group sep">
+  <label for="sub">Subject:</label>
+  <input type="text" class="form-control" id="sub">
+  <label for="comment">Your Comments:</label>
+  <textarea class="form-control" rows="10" id="comment"></textarea>
+  <div class="form-group row">
+    <button *ngIf="" class="btn btn-success" style="margin-left: 45%; margin-top: 2%" [disabled]="" (click)="reviewTrack()">Submit</button>
+    <button *ngIf="" class="btn btn-info" style="margin-left: 40%; margin-top: 2%" [disabled]="" (click)="updateReviewTrack()">Update</button>
+  </div>
+  <div *ngIf="" class="alert alert-success" role="alert">
+    <strong>Done!</strong> Your review has been posted.
+  </div>
+  <div *ngIf="" class="alert alert-info" role="alert">
+    <strong>Already reviewed!</strong> You have already submitted a review for this track.
+  </div>
+</div>

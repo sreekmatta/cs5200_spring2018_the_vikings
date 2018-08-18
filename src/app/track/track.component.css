@@ -159,7 +159,8 @@ body {
 }
 
 .button__prev,
-.button__next{
+.button__next,
+.button__prev_unlike{
   display: inline-block;
   height: 50px;
   width: 50px;
@@ -174,6 +175,8 @@ body {
   cursor: pointer;
   -webkit-transition:all 300ms ease;
   transition:all 300ms ease;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 .button__prev_unlike{
@@ -191,6 +194,8 @@ body {
   cursor: pointer;
   -webkit-transition:all 300ms ease;
   transition:all 300ms ease;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 .button__pause:active,
@@ -227,4 +232,10 @@ body {
   margin-left: 110%;
   padding: 5% 5% 5% 5%;
   margin-top: 50%;
+}
+
+.review {
+  margin-left: 110%;
+  padding: 5% 5% 5% 5%;
+  margin-top: 25%;
 }
