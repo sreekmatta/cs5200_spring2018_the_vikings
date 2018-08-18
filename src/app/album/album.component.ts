@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {faEdit} from '@fortawesome/free-solid-svg-icons';
 import {ActivatedRoute, Router} from '@angular/router';
 import {NapsterServiceClient} from '../services/napster.service.client';
 import {PersonServiceClient} from '../services/person.service.client';
@@ -20,6 +21,7 @@ export class AlbumComponent implements OnInit {
   imageURL: any;
   albumsResult: Album;
   tracks: Track[];
+  faEdit = faEdit;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
