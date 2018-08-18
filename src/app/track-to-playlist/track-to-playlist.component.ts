@@ -31,7 +31,7 @@ export class TrackToPlaylistComponent implements OnInit {
   }
 
   addTrackToPlaylist(playlistId) {
-    if (this.trackToAdd.id.startsWith('tra')) {
+    if (typeof this.trackToAdd.id === 'string' && this.trackToAdd.id.startsWith('tra')) {
       this.trackToAdd['napsterId'] = Number(this.trackToAdd.id.substring(4));
       this.personService.addNapsterTrackToPlaylistForPerson(playlistId, this.trackToAdd)
         .subscribe(response => {

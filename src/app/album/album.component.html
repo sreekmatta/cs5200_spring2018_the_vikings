@@ -18,6 +18,7 @@
                 <div class="item">
                   <div class="song__name" *ngIf="albumsResult">{{albumsResult.name}}</div>
                   <p class="album__name" *ngIf="albumsResult">{{albumsResult.artistName}}</p>
+                  <p class="album__name" *ngIf="albumsResult.artist">{{albumsResult.artist.username}}</p>
                   <div class="music__button">
                     <div *ngIf="person && person.dType==='CRITIC'">
                       <span class="button__next" data-toggle="modal" data-target="#reviewModal"><fa-icon [icon]="faEdit" class="mh-icon small"></fa-icon></span>

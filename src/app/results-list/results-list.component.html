@@ -8,7 +8,7 @@
     <div style="margin-top: 20px">
       <ng-template #modalBody>
         <h4>Create {{domainObject}}</h4>
-        <app-create-track-form *ngIf="domainObject==='track'"></app-create-track-form>
+        <app-create-track-form [loggedInUser]="person" *ngIf="domainObject==='track'"></app-create-track-form>
         <app-create-playlist-album-form [domainObject]="domainObject"
                                         *ngIf="domainObject==='playlist'||domainObject==='album'"></app-create-playlist-album-form>
         <button type="button" class="btn btn-danger" (click)="refreshList(htmlInsideModal)">&nbsp; Close&nbsp;</button>
@@ -28,7 +28,7 @@
       <p class="card-text" *ngIf="result.artistName">{{result.artistName}}<br/>
         <span class="card-text small" *ngIf="result.albumName">{{result.albumName}}</span>
       </p>
-      <p class="card-text" *ngIf="result.artist && result.artist.firstName">{{result.artist.firstName}}<br/>
+      <p class="card-text" *ngIf="result.artist && result.artist.username">{{result.artist.username}}<br/>
         <span class="card-text small" *ngIf="result.albums && result.albums[0].name">{{result.albumName}}</span>
       </p>
       <p class="card-text" *ngIf="domainObject=='track'&&person">

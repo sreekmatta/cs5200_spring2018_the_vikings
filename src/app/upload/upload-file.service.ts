@@ -15,11 +15,12 @@ export class UploadFileService {
 
   DOMAIN_URL = 'http://localhost:8080';
 
-  pushTrackToStorage(file: File, track: Track): Observable<HttpEvent<{}>> {
+  pushTrackToStorage(file: File, track: Track, album: Album): Observable<HttpEvent<{}>> {
     const formdata: FormData = new FormData();
 
     formdata.append('file', file);
     formdata.append('track', JSON.stringify(track));
+    formdata.append('album', JSON.stringify(album));
 
     const req = new HttpRequest('POST', this.DOMAIN_URL + '/create/track', formdata, {
       reportProgress: true,

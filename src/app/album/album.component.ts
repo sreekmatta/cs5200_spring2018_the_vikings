@@ -33,9 +33,12 @@ export class AlbumComponent implements OnInit {
     this.personService.checkSession().subscribe(
       (person: Person) => {
         this.person = person;
-      }
-      , error => alert('could not load user'));
-    this.albumService.findAlbumById(this.albumId.split('.').pop())
+      }, error => alert('could not load user'));
+
+    if (typeof this.albumId === 'string') {
+      this.albumId = this.albumId.split('.').pop();
+    }
+    this.albumService.findAlbumById(this.albumId)
       .subscribe(
         (response: Album) => {
           if (response) {
@@ -43,8 +46,13 @@ export class AlbumComponent implements OnInit {
               this.fetchFromNapster('alb.' + response.napsterId);
             } else {
               this.albumsResult = response;
-              this.imageURL = 'https://cloud.netlifyusercontent.com/assets/' +
-                '344dbf88-fdf9-42bb-adb4-46f01eedd629/514dc845-04f5-4538-8a4f-869b64243265/1-2.jpg';
+              this.tracks = response['tracks'];
+              if (!this.albumsResult.imageURL) {
+                this.imageURL = 'https://cloud.netlifyusercontent.com/assets/' +
+                  '344dbf88-fdf9-42bb-adb4-46f01eedd629/514dc845-04f5-4538-8a4f-869b64243265/1-2.jpg';
+              } else {
+                this.imageURL = this.albumsResult.imageURL;
+              }
             }
           } else {
             this.fetchFromNapster(this.albumId);
@@ -58,8 +66,8 @@ export class AlbumComponent implements OnInit {
       .subscribe(response => {
           this.albumsResult = response['albums'][0];
           this.napsterService.getAlbumTracks(this.albumsResult['links']['tracks']['href'])
-            .subscribe(response => {
-              this.tracks = response['tracks'];
+            .subscribe(res => {
+              this.tracks = res['tracks'];
             }, error => alert('Couldn\'t find tracks'));
           this.napsterService.findAlbumImagesById(albumId)
             .subscribe(resp => {
