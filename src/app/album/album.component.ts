@@ -34,11 +34,7 @@ export class AlbumComponent implements OnInit {
       (person: Person) => {
         this.person = person;
       }, error => alert('could not load user'));
-
-    if (typeof this.albumId === 'string') {
-      this.albumId = this.albumId.split('.').pop();
-    }
-    this.albumService.findAlbumById(this.albumId)
+    this.albumService.findAlbumById(this.albumId.toString().split('.').pop())
       .subscribe(
         (response: Album) => {
           if (response) {

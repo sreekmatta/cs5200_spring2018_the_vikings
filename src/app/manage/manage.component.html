@@ -1,0 +1,43 @@
+<div class="row mh-form">
+  <div class="col-2 mh-col-left">
+    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <div class="mh-side-heading">DOMAIN OBJECTS</div>
+      <a class="nav-link active" id="v-pills-tracks-tab" data-toggle="pill" href="#v-pills-tracks" role="tab"
+         aria-controls="v-pills-tracks" aria-selected="true">Tracks</a>
+      <a class="nav-link" id="v-pills-playlists-tab" data-toggle="pill" href="#v-pills-playlists" role="tab"
+         aria-controls="v-pills-playlists" aria-selected="false">Playlists</a>
+      <a class="nav-link" id="v-pills-albums-tab" data-toggle="pill" href="#v-pills-albums" role="tab"
+         aria-controls="v-pills-albums" aria-selected="false">Albums</a>
+
+      <div class="mh-side-heading">USERS</div>
+      <a class="nav-link" id="v-pills-artist-tab" data-toggle="pill" href="#v-pills-artist" role="tab"
+         aria-controls="v-pills-artist" aria-selected="false">Artist</a>
+      <a class="nav-link" id="v-pills-critic-tab" data-toggle="pill" href="#v-pills-critic" role="tab"
+         aria-controls="v-pills-critic" aria-selected="false">Critic</a>
+      <a class="nav-link" id="v-pills-advertiser-tab" data-toggle="pill" href="#v-pills-advertiser" role="tab"
+         aria-controls="v-pills-advertiser" aria-selected="false">Advertiser</a>
+    </div>
+  </div>
+  <div class="col-10">
+    <div class="tab-content" id="v-pills-tabContent">
+      <div class="tab-pane fade show active" id="v-pills-tracks" role="tabpanel" aria-labelledby="v-pills-tracks-tab">
+        <app-manager entity="track"></app-manager>
+      </div>
+      <div class="tab-pane fade" id="v-pills-playlists" role="tabpanel" aria-labelledby="v-pills-playlists-tab">
+        <app-manager entity="playlist"></app-manager>
+      </div>
+      <div class="tab-pane fade" id="v-pills-albums" role="tabpanel" aria-labelledby="v-pills-albums-tab">
+        <app-manager entity="album"></app-manager>
+      </div>
+      <div class="tab-pane fade" id="v-pills-artist" role="tabpanel" aria-labelledby="v-pills-artist-tab">
+        <app-manager entity="artist"></app-manager>
+      </div>
+      <div class="tab-pane fade" id="v-pills-critic" role="tabpanel" aria-labelledby="v-pills-critic-tab">
+        <app-manager entity="critic"></app-manager>
+      </div>
+      <div class="tab-pane fade" id="v-pills-advertiser" role="tabpanel" aria-labelledby="v-pills-advertiser-tab">
+        <app-manager entity="advertiser"></app-manager>
+      </div>
+    </div>
+  </div>
+</div>

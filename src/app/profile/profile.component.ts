@@ -4,7 +4,7 @@ import {Person} from '../models/Person';
 import {PersonServiceClient} from '../services/person.service.client';
 import {ArtistServiceClient} from '../services/artist.service.client';
 import {CriticServiceClient} from '../services/critic.service.client';
-import {AppComponent} from '../app.component';
+import {AdminServiceClient} from '../services/admin.service.client';
 
 @Component({
   selector: 'app-profile',
@@ -20,7 +20,8 @@ export class ProfileComponent implements OnInit {
   constructor(private router: Router,
               private personService: PersonServiceClient,
               private artistService: ArtistServiceClient,
-              private criticService: CriticServiceClient) {
+              private criticService: CriticServiceClient,
+              private adminService: AdminServiceClient) {
     this.personService.checkSession().subscribe(
       (person: Person) => this.person = person, error => alert('could not load user')
     );
@@ -40,6 +41,9 @@ export class ProfileComponent implements OnInit {
     } else if (p.dType === 'CRITIC') {
       this.criticService.updateCritic(p)
         .subscribe(updatedPerson => this.successMsg = 'Critic details updated successfully');
+    } else if (p.dType === 'ADMIN') {
+      this.adminService.updateAdmin(p)
+        .subscribe(updatedPerson => this.successMsg = 'Admin details updated successfully');
     }
   }
 }

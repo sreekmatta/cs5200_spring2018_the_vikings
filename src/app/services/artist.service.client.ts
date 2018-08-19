@@ -22,4 +22,8 @@ export class ArtistServiceClient {
   findArtistById(aid) {
     return this.http.get(this.ARTIST_URL + '/' + aid);
   }
+
+  findAllArtists() {
+    return this.http.get(this.ARTIST_URL);
+  }
 }

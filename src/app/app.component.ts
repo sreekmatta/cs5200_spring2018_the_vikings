@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {PersonServiceClient} from './services/person.service.client';
 import {Person} from './models/Person';
-import {ActivatedRoute, NavigationExtras, Router} from '@angular/router';
-import {SearchResultsComponent} from './search-results/search-results.component';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -39,7 +38,7 @@ export class AppComponent implements OnInit {
         this.person = null;
       },
       err => {
-        alert("Couldn't logout");
+        alert('Couldn\'t logout');
       });
     this.router.navigate(['home']);
   }

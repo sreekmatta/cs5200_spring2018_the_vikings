@@ -29,7 +29,7 @@
                                                                                         class="mh-icon small"></fa-icon></span>
                 <span (click)="unlikeTrack()" class="button__prev_unlike" *ngIf="like"><fa-icon [icon]="faThumbsUp"
                                                                                                 class="mh-icon small"></fa-icon></span>
-                <span class="button__next" data-toggle="modal" data-target="#rateModal"><fa-icon [icon]="faStar" class="mh-icon small"></fa-icon></span>
+                <span class="button__next" (click)="htmlInsideModal.open()"><fa-icon [icon]="faStar" class="mh-icon small"></fa-icon></span>
               </div>
               <br/><br/><br/>
               <audio style="padding-bottom: 20px" class="text-center" controls="controls">
@@ -43,21 +43,14 @@
   </div>
 </div>
 
-<div class="modal fade" id="rateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content rate">
-      <div class="modal-header">
-        <h1 class="modal-title" *ngIf="tracksResult" style="font-size: 22px" id="rateModalLabel"><b>Rate {{tracksResult.name}} by
-          {{tracksResult.artistName}}</b></h1>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <app-rate-form  *ngIf="tracksResult" [track]="tracksResult"></app-rate-form>
-      </div>
-    </div>
+<modal #htmlInsideModal [closeOnOutsideClick]="false">
+  <div>
+    <ng-template #modalBody>
+      <h4 *ngIf="tracksResult"><b>Rate {{tracksResult.name}} by
+        {{tracksResult.artistName}}</b></h4>
+      <app-rate-form  *ngIf="tracksResult" [track]="tracksResult"></app-rate-form>
+      <button type="button" class="btn btn-danger float-right" (click)="htmlInsideModal.close();">Close</button>
+    </ng-template>
   </div>
-</div>
+</modal>
 

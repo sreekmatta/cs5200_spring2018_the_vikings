@@ -2,7 +2,7 @@
   <label for="sub">Subject:</label>
   <input type="text" [(ngModel)]="title" class="form-control" id="sub">
   <label for="comment">Your Comments:</label>
-  <textarea class="form-control" [(ngModel)]="text" rows="10" id="comment"></textarea>
+  <textarea class="form-control" style="width: 450px" [(ngModel)]="text" rows="10" id="comment">jj</textarea>
   <div class="form-group row">
     <button *ngIf="!reviewed" class="btn btn-success" style="margin-left: 45%; margin-top: 2%"
             [disabled]="submitted || !title || !text || deleted" (click)="reviewAlbum()">Submit</button>
