@@ -41,6 +41,7 @@ import {ManagerComponent} from './manager/manager.component';
 import {AdvertiserServiceClient} from './services/advertiser.service.client';
 import {AdvertisementComponent} from './advertisement/advertisement.component';
 import {CritiqueComponent} from './critique/critique.component';
+import {DomainManagerComponent} from './domain-manager/domain-manager.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import {CritiqueComponent} from './critique/critique.component';
     ManageComponent,
     ManagerComponent,
     AdvertisementComponent,
-    CritiqueComponent
+    CritiqueComponent,
+    DomainManagerComponent
   ],
   imports: [
     BrowserModule,

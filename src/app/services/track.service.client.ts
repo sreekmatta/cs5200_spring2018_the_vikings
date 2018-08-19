@@ -22,4 +22,8 @@ export class TrackServiceClient {
   findTrackByName(name) {
     return this.http.get(this.TRACK_URL + 'name/' + name);
   }
+
+  findAllTracks() {
+    return this.http.get(this.TRACK_URL);
+  }
 }
