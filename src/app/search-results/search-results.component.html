@@ -9,6 +9,9 @@
          aria-controls="v-pills-albums" aria-selected="false">Albums</a>
       <a class="nav-link" id="v-pills-artists-tab" data-toggle="pill" href="#v-pills-artists" role="tab"
          aria-controls="v-pills-artists" aria-selected="false">Artists</a>
+      <a class="nav-link" id="v-pills-people-tab" data-toggle="pill" href="#v-pills-people" role="tab"
+         aria-controls="v-pills-people" aria-selected="false">People</a>
+
     </div>
   </div>
   <div class="col-10">
@@ -24,6 +27,9 @@
       </div>
       <div class="tab-pane fade" id="v-pills-artists" role="tabpanel" aria-labelledby="v-pills-artists-tab">
         <app-results-list *ngIf="artistsResultList" domainObject="artist" [resultList]="artistsResultList"></app-results-list>
+      </div>
+      <div class="tab-pane fade" id="v-pills-people" role="tabpanel" aria-labelledby="v-pills-people-tab">
+        <app-friends *ngIf="peopleResultList" domainObject="people" [resultList]="peopleResultList"></app-friends>
       </div>
     </div>
   </div>

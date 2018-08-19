@@ -9,4 +9,5 @@ export class Person {
   selfBio: string;
   dType: string;
   userType: string;
+  followers: Person[];
 }
