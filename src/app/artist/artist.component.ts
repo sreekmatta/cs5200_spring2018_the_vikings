@@ -8,6 +8,7 @@ import {Artist} from '../models/Artist';
 import {NapsterServiceClient} from '../services/napster.service.client';
 import {AdvertiserServiceClient} from '../services/advertiser.service.client';
 import {Advertisement} from '../models/Advertisement';
+import {AdvertisementComponent} from '../advertisement/advertisement.component';
 
 @Component({
   selector: 'app-artist',
@@ -24,13 +25,14 @@ export class ArtistComponent implements OnInit {
   isNapster: boolean;
   newAdvertisement: Advertisement;
   finalArtistId;
-
+  successMsg;
   constructor(private route: ActivatedRoute,
               private router: Router,
               private napsterService: NapsterServiceClient,
               private personService: PersonServiceClient,
               private artistService: ArtistServiceClient,
-              private advertiserService: AdvertiserServiceClient) {
+              private advertiserService: AdvertiserServiceClient,
+              private advertisementComp: AdvertisementComponent) {
   }
 
   fetchFromNapster(artistId) {
@@ -55,6 +57,7 @@ export class ArtistComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.toggleCssInjector();
 
     this.newAdvertisement = new Advertisement();
     this.isNapster = false;
@@ -92,16 +95,27 @@ export class ArtistComponent implements OnInit {
 
   refreshAdvertsements(adModal) {
     adModal.close();
+    this.advertisementComp.ngOnInit();
   }
 
   addAvertisement(ad) {
     if (this.isNapster) {
       this.advertiserService.createAdvertisementsCreatedInNapsterArtistPage(this.finalArtistId, this.person, ad)
-        .subscribe(response => response);
+        .subscribe(response => {
+          this.successMsg = 'Advertisement created successfully';
+        });
     } else {
       this.advertiserService.createAdvertisementsCreatedInArtistPage(this.finalArtistId, this.person, ad)
         .subscribe(response => response);
     }
   }
-
+  toggleCssInjector() {
+    const head = document.head;
+    const link = document.createElement('link');
+    link.id = 'injected';
+    link.type = 'text/css';
+    link.rel = 'stylesheet';
+    link.href = 'assets/css/form.css';
+    head.appendChild(link);
+  }
 }

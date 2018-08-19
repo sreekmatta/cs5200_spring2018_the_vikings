@@ -30,17 +30,17 @@ import {AlbumServiceClient} from './services/album.service.client';
 import {PlaylistServiceClient} from './services/playlist.service.client';
 import {RateFormComponent} from './rate-form/rate-form.component';
 import {ModalModule} from 'angular-custom-modal';
-import { ReviewFormComponent } from './review-form/review-form.component';
-import { AlbumComponent } from './album/album.component';
-import { ArtistComponent } from './artist/artist.component';
-import { TrackToPlaylistComponent } from './track-to-playlist/track-to-playlist.component';
-import { PlaylistComponent } from './playlist/playlist.component';
-import { ManageComponent } from './manage/manage.component';
+import {ReviewFormComponent} from './review-form/review-form.component';
+import {AlbumComponent} from './album/album.component';
+import {ArtistComponent} from './artist/artist.component';
+import {TrackToPlaylistComponent} from './track-to-playlist/track-to-playlist.component';
+import {PlaylistComponent} from './playlist/playlist.component';
+import {ManageComponent} from './manage/manage.component';
 import {AdminServiceClient} from './services/admin.service.client';
-import { ManagerComponent } from './manager/manager.component';
+import {ManagerComponent} from './manager/manager.component';
 import {AdvertiserServiceClient} from './services/advertiser.service.client';
-import { AdvertisementComponent } from './advertisement/advertisement.component';
-import { CritiqueComponent } from './critique/critique.component';
+import {AdvertisementComponent} from './advertisement/advertisement.component';
+import {CritiqueComponent} from './critique/critique.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +78,7 @@ import { CritiqueComponent } from './critique/critique.component';
     FontAwesomeModule,
     HttpClientModule
   ],
-  providers: [DashboardRightPaneComponent, ArtistServiceClient, CriticServiceClient,
+  providers: [DashboardRightPaneComponent, AdvertisementComponent, ArtistServiceClient, CriticServiceClient,
     PersonServiceClient, NapsterServiceClient, UploadFileService, TrackServiceClient,
     AlbumServiceClient, PlaylistServiceClient, AdminServiceClient, AdvertiserServiceClient],
   bootstrap: [AppComponent]
