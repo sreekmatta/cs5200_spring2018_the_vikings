@@ -40,6 +40,12 @@ export class PersonServiceClient {
     return this.http.get(this.DOMAIN_URL + '/api/person/username/' + username);
   }
 
+
+  findUserFollowing(id) {
+    return this.http.get(this.DOMAIN_URL + '/api/person/following/' + id);
+  }
+
+
   findUserById(id) {
     return this.http.get(this.USER_URL + '/' + id);
   }

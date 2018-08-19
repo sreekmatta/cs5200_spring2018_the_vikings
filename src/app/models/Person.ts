@@ -1,3 +1,5 @@
+import {Album} from './Album';
+
 export class Person {
   id: Number;
   username: string;
@@ -10,4 +12,6 @@ export class Person {
   dType: string;
   userType: string;
   followers: Person[];
+  following: Person[];
+  albums: Album[];
 }

@@ -20,7 +20,7 @@
   <div class="card" *ngFor="let result of resultList">
     <img class="card-img-top" *ngIf="result.imageURL" [src]="result.imageURL">
     <img class="card-img-top" *ngIf="result.imageUrl" [src]="result.imageUrl">
-    <img class="card-img-top" *ngIf="result.images && result.images.length>0" src="{{result.images[0].url}}"
+    <img class="card-img-top" *ngIf="result.images && result.images.length>0" [src]="result.images[0].url"
          alt="Card image cap"/>
     <img class="card-img-top" *ngIf="result.links && result.links.images && result.links.images.length>0"
          [src]="result.links.images[0].href"
@@ -44,7 +44,7 @@
 
       <modal #addToPersonPlaylist>
         <ng-template #modalBody>
-          <h4>Add to playlist</h4>
+          <h4>Add to Playlist/Album</h4>
           <app-track-to-playlist [trackToAdd]="result"></app-track-to-playlist>
         </ng-template>
       </modal>

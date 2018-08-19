@@ -26,24 +26,29 @@ export class FriendsComponent implements OnInit, OnChanges {
     this.personService.checkSession().subscribe(
       (person: Person) => {
         this.person = person;
-        this.resultList = this.resultList.map(personByUsername => {
-          personByUsername['follow'] = personByUsername.followers.map(eachFollowers => {
-            if (eachFollowers.id === this.person.id) {
-              return true;
+        if (this.resultList) {
+          this.resultList = this.resultList.map(personByUsername => {
+            if (personByUsername.followers) {
+              personByUsername['follow'] = personByUsername.followers.map(eachFollowers => {
+                if (eachFollowers.id === this.person.id) {
+                  return true;
+                } else {
+                  return false;
+                }
+              });
+            }
+            return personByUsername;
+
+          });
+
+          this.resultList.map(p => {
+            if (p.follow && p.follow.includes(true)) {
+              p.follow = true;
             } else {
-              return false;
+              p.follow = false;
             }
           });
-          return personByUsername;
-        });
-
-        this.resultList.map(p => {
-          if (p.follow.includes(true)) {
-            p.follow = true;
-          } else {
-            p.follow = false;
-          }
-        });
+        }
       });
   }
 

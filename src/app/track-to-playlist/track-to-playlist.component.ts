@@ -3,6 +3,7 @@ import {PlaylistServiceClient} from '../services/playlist.service.client';
 import {Playlist} from '../models/Playlist';
 import {Person} from '../models/Person';
 import {PersonServiceClient} from '../services/person.service.client';
+import {Album} from '../models/Album';
 
 @Component({
   selector: 'app-track-to-playlist',
@@ -14,6 +15,7 @@ export class TrackToPlaylistComponent implements OnInit {
   @Input() trackToAdd;
 
   playlists: Playlist[];
+  albums: Album[];
   person: Person;
 
   constructor(private personService: PersonServiceClient, private playlistService: PlaylistServiceClient) {
@@ -27,6 +29,9 @@ export class TrackToPlaylistComponent implements OnInit {
           .subscribe((playlists: Playlist[]) => {
             this.playlists = playlists;
           });
+        if (person.dType === 'ARTIST') {
+          this.albums = this.person.albums;
+        }
       });
   }
 
@@ -42,6 +47,9 @@ export class TrackToPlaylistComponent implements OnInit {
 
         });
     }
+  }
+
+  addTrackToAlbum(albumId) {
   }
 
 }

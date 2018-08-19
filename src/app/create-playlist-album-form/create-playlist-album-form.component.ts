@@ -18,7 +18,7 @@ export class CreatePlaylistAlbumFormComponent implements OnInit {
   selectedFiles: FileList;
   currentFileUpload: File;
   progress: { percentage: number } = {percentage: 0};
-
+  successMsg;
   constructor(private uploadService: UploadFileService) {
   }
 
@@ -44,7 +44,7 @@ export class CreatePlaylistAlbumFormComponent implements OnInit {
           if (event.type === HttpEventType.UploadProgress) {
             this.progress.percentage = Math.round(100 * event.loaded / event.total);
           } else if (event instanceof HttpResponse) {
-            console.log('File is completely uploaded!');
+            this.successMsg = 'Playlist successfully created. Please close this wizard!';
           }
         });
     } else {
@@ -53,7 +53,7 @@ export class CreatePlaylistAlbumFormComponent implements OnInit {
           if (event.type === HttpEventType.UploadProgress) {
             this.progress.percentage = Math.round(100 * event.loaded / event.total);
           } else if (event instanceof HttpResponse) {
-            console.log('File is completely uploaded!');
+            this.successMsg = 'Album successfully created. Please close this wizard!';
           }
         });
     }

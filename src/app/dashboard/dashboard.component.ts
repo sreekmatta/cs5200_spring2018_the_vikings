@@ -18,7 +18,12 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.personService.checkSession().subscribe(
-      (person: Person) => this.person = person);
+      (person: Person) => {
+        this.person = person;
+        this.personService.findUserFollowing(this.person.id).subscribe((response: Person[]) => {
+          this.person.following = response;
+        });
+      });
   }
 
 }

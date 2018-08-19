@@ -22,6 +22,7 @@ export class CreateTrackFormComponent implements OnInit {
   addToAlbum: Album;
   progress: { percentage: number } = {percentage: 0};
   query: string;
+  successMsg;
 
   constructor(private uploadService: UploadFileService, private albumService: AlbumServiceClient, private cd: ChangeDetectorRef) {
   }
@@ -84,7 +85,7 @@ export class CreateTrackFormComponent implements OnInit {
         if (event.type === HttpEventType.UploadProgress) {
           this.progress.percentage = Math.round(100 * event.loaded / event.total);
         } else if (event instanceof HttpResponse) {
-          console.log('File is completely uploaded!');
+          this.successMsg = 'Track successfully created. Please close this wizard!';
         }
       });
 

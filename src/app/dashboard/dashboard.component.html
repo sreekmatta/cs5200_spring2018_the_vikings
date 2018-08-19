@@ -34,10 +34,10 @@
         <app-dashboard-right-pane domainObject="album" *ngIf="person&&person.dType=='ARTIST'"></app-dashboard-right-pane>
       </div>
       <div class="tab-pane fade" id="v-pills-followers" role="tabpanel" aria-labelledby="v-pills-followers-tab">
-        <app-friends domainObject="followers" [resultList]="person.followers"></app-friends>
+        <app-friends domainObject="followers" *ngIf="person&&person.followers&&person.followers.length>0" [resultList]="person.followers"></app-friends>
       </div>
       <div class="tab-pane fade" id="v-pills-following" role="tabpanel" aria-labelledby="v-pills-following-tab">
-        <app-friends domainObject="following"></app-friends>
+        <app-friends domainObject="following" *ngIf="person&&person.following&&person.following.length>0" [resultList]="person.following"></app-friends>
       </div>
     </div>
   </div>
