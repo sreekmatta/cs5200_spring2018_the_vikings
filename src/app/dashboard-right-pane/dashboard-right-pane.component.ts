@@ -10,6 +10,8 @@ import {Album} from '../models/Album';
 import {Artist} from '../models/Artist';
 import {PlaylistServiceClient} from '../services/playlist.service.client';
 import {AlbumServiceClient} from '../services/album.service.client';
+import {AdvertiserServiceClient} from '../services/advertiser.service.client';
+import {Advertisement} from '../models/Advertisement';
 
 @Component({
   selector: 'app-dashboard-right-pane',
@@ -26,7 +28,8 @@ export class DashboardRightPaneComponent implements OnInit {
   faPlusCircle = faPlusCircle;
 
   constructor(private tracksService: TrackServiceClient, private personService: PersonServiceClient,
-              private playlistsService: PlaylistServiceClient, private albumService: AlbumServiceClient) {
+              private playlistsService: PlaylistServiceClient, private albumService: AlbumServiceClient,
+              private advertisementService: AdvertiserServiceClient) {
   }
 
   ngOnInit() {
@@ -46,6 +49,12 @@ export class DashboardRightPaneComponent implements OnInit {
         if (this.domainObject === 'playlist') {
           this.playlistsService.findPlaylistsByPersonId(this.person.id).subscribe((playlists: Playlist[]) => {
             this.resultList = playlists;
+          });
+        }
+        if (this.domainObject === 'advertisement') {
+          this.advertisementService.findAdvertisementsByAdvertiser(this.person.id)
+            .subscribe((ads: Advertisement[]) => {
+            this.resultList = ads;
           });
         }
       }, error => alert('could not load user')

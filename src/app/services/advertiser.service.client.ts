@@ -36,6 +36,10 @@ export class AdvertiserServiceClient {
   }
 
   findAdvertisementsByNapsterArtist(napsterArtistId, advertiserId) {
-    return this.http.get(this.DOMAIN_URL + '/api/find/advertisement/' + napsterArtistId + '/in/napster/artist/' + advertiserId);
+    return this.http.get(this.DOMAIN_URL + '/api/advertisement/' + napsterArtistId + '/in/napster/artist/' + advertiserId);
+  }
+
+  findAdvertisementsByAdvertiser(advertiserId) {
+    return this.http.get(this.DOMAIN_URL + '/api/advertisement/advertiser/' + advertiserId);
   }
 }

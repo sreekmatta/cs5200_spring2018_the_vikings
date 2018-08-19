@@ -36,8 +36,8 @@ export class PersonServiceClient {
     return this.http.get(this.SESSION_URL);
   }
 
-  findUserByEmail(email) {
-    return this.http.get(this.USER_URL + '/email/' + email);
+  findUserByUsername(username) {
+    return this.http.get(this.DOMAIN_URL + '/api/person/username/' + username);
   }
 
   findUserById(id) {
@@ -55,6 +55,14 @@ export class PersonServiceClient {
     const createPlaylistForPerson = this.NAPSTER_TRACK_UNDER_PLAYLIST
       .replace('PLAYLIST_ID', playlistId);
     return this.http.post(createPlaylistForPerson, track);
+  }
+
+  followPerson(currentPersonId, anotherPersonId) {
+    return this.http.post(this.DOMAIN_URL + '/api/follow/' + currentPersonId, anotherPersonId);
+  }
+
+  unfollowPerson(currentPersonId, anotherPersonId) {
+    return this.http.post(this.DOMAIN_URL + '/api/unfollow/' + currentPersonId, anotherPersonId);
   }
 
   /**
