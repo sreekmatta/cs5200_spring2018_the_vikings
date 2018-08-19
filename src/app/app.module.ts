@@ -36,6 +36,7 @@ import { ArtistComponent } from './artist/artist.component';
 import { TrackToPlaylistComponent } from './track-to-playlist/track-to-playlist.component';
 import { PlaylistComponent } from './playlist/playlist.component';
 import {AdvertiserServiceClient} from './services/advertiser.service.client';
+import { AdvertisementComponent } from './advertisement/advertisement.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import {AdvertiserServiceClient} from './services/advertiser.service.client';
     AlbumComponent,
     ArtistComponent,
     TrackToPlaylistComponent,
-    PlaylistComponent
+    PlaylistComponent,
+    AdvertisementComponent
   ],
   imports: [
     BrowserModule,
