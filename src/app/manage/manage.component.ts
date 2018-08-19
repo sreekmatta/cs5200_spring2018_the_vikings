@@ -13,7 +13,7 @@ export class ManageComponent implements OnInit {
 
   constructor(private personService: PersonServiceClient) {
     this.personService.checkSession().subscribe(
-      (person: Person) => this.person = person, error => alert('could not load user')
+      (person: Person) => this.person = person, () => alert('could not load user')
     );
   }
 

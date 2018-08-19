@@ -69,4 +69,16 @@ export class CriticServiceClient {
   deleteReviewAlbum(rid) {
     return this.http.delete(this.REVIEW_URL + '/' + rid);
   }
+
+  getLikes(id) {
+    return this.http.get(this.LIKE_URL + '?critic=' + id);
+  }
+
+  getRatings(id) {
+    return this.http.get(this.RATE_URL + '?cid=' + id);
+  }
+
+  getReviews(id) {
+    return this.http.get(this.REVIEW_URL + '?cid=' + id);
+  }
 }

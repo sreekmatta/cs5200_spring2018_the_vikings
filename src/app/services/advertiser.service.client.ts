@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
 export class AdvertiserServiceClient {
 
   DOMAIN_URL = 'http://localhost:8080';
-  ADVERTISER_URL = this.DOMAIN_URL + '/api/advertiser';
+  ADVERTISER_URL: string = this.DOMAIN_URL + '/api/advertiser';
 
   constructor(private http: HttpClient) {
   }
