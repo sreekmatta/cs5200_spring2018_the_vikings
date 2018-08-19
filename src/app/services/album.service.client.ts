@@ -21,7 +21,9 @@ export class AlbumServiceClient {
 
   findAlbumByName(name) {
     return this.http.get(this.ALBUM_URL + 'name/' + name);
-
   }
 
+  findAllAlbums() {
+    return this.http.get(this.ALBUM_URL);
+  }
 }
