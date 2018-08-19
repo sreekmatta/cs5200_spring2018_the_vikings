@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CriticServiceClient} from '../services/critic.service.client';
-import {forEach} from '../../../node_modules/@angular/router/src/utils/collection';
 import {ArtistServiceClient} from '../services/artist.service.client';
+import {AdvertiserServiceClient} from '../services/advertiser.service.client';
 
 @Component({
   selector: 'app-manager',
@@ -16,13 +16,16 @@ export class ManagerComponent implements OnInit {
   newResult: any = {};
 
   constructor(private artistService: ArtistServiceClient,
-              private criticService: CriticServiceClient) { }
+              private criticService: CriticServiceClient,
+              private advertiserService: AdvertiserServiceClient) { }
 
   ngOnInit() {
     if (this.entity === 'critic') {
       this.loadCritics();
     } else if (this.entity === 'artist') {
       this.loadArtists();
+    } else if (this.entity === 'advertiser') {
+      this.loadAdvertisers();
     }
   }
 
@@ -42,6 +45,14 @@ export class ManagerComponent implements OnInit {
         , () => alert('Couldn\'t load artists!'));
   }
 
+  loadAdvertisers() {
+    this.advertiserService.findAllAdvertisers()
+      .subscribe(response => {
+          this.resultSet = response;
+        }
+        , () => alert('Couldn\'t load advertisers!'));
+  }
+
   update(result) {
     if (this.entity === 'critic') {
       this.criticService.updateCritic(result)
@@ -57,6 +68,15 @@ export class ManagerComponent implements OnInit {
           this.edit = false;
         }, () =>  {
           alert('Couldn\'t edit artist!');
+          this.edit = false;
+        });
+    } else if (this.entity === 'advertiser') {
+      this.advertiserService.updateAdvertiser(result)
+        .subscribe(response => {
+          console.log(response);
+          this.edit = false;
+        }, () =>  {
+          alert('Couldn\'t edit advertiser!');
           this.edit = false;
         });
     }
@@ -77,11 +97,17 @@ export class ManagerComponent implements OnInit {
         }, () =>  {
           alert('Couldn\'t create artist!');
         });
+    } else if (this.entity === 'advertiser') {
+      this.advertiserService.createAdvertiser(this.newResult)
+        .subscribe(response => {
+          this.resultSet.push(response);
+        }, () =>  {
+          alert('Couldn\'t create advertiser!');
+        });
     }
   }
 
   delete(id) {
-    console.log(id);
     if (this.entity === 'critic') {
       this.criticService.deleteCritic(id)
         .subscribe(response => {
@@ -100,6 +126,44 @@ export class ManagerComponent implements OnInit {
           }
         }, () =>  {
           alert('Couldn\'t delete critic!');
+        });
+    } else if (this.entity === 'artist') {
+      this.artistService.deleteArtist(id)
+        .subscribe(response => {
+          if (response === 'OK') {
+            let index = 0;
+            let deleteIndex = -1;
+            this.resultSet.forEach(function (entry) {
+              if (entry.id === id) {
+                deleteIndex = index;
+              }
+              index++;
+            });
+            if (deleteIndex !== -1) {
+              this.resultSet.splice(deleteIndex);
+            }
+          }
+        }, () =>  {
+          alert('Couldn\'t delete artist!');
+        });
+    } else if (this.entity === 'advertiser') {
+      this.advertiserService.deleteAdvertiser(id)
+        .subscribe(response => {
+          if (response === 'OK') {
+            let index = 0;
+            let deleteIndex = -1;
+            this.resultSet.forEach(function (entry) {
+              if (entry.id === id) {
+                deleteIndex = index;
+              }
+              index++;
+            });
+            if (deleteIndex !== -1) {
+              this.resultSet.splice(deleteIndex);
+            }
+          }
+        }, () =>  {
+          alert('Couldn\'t delete advertiser!');
         });
     }
   }
