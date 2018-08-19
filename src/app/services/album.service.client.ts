@@ -19,4 +19,9 @@ export class AlbumServiceClient {
     return this.http.get(this.ALBUM_URL + aid);
   }
 
+  findAlbumByName(name) {
+    return this.http.get(this.ALBUM_URL + 'name/' + name);
+
+  }
+
 }

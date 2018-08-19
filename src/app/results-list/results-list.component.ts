@@ -39,7 +39,7 @@ export class ResultsListComponent implements OnInit {
   ngOnInit() {
     this.personService.checkSession().subscribe(
       (person: Person) => this.person = person);
-        this.toggleCssInjector();
+    this.toggleCssInjector();
   }
 
   likeTrack(trackId) {

@@ -74,7 +74,7 @@ export class CreateTrackFormComponent implements OnInit {
 
   upload() {
     this.progress.percentage = 0;
-    if (!this.addToAlbum) {
+    if (!this.addToAlbum || this.addToAlbum.name !== this.query) {
       this.addToAlbum = new Album();
       this.addToAlbum.name = this.query;
     }
