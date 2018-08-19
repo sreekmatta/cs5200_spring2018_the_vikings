@@ -38,6 +38,8 @@ import { PlaylistComponent } from './playlist/playlist.component';
 import { ManageComponent } from './manage/manage.component';
 import {AdminServiceClient} from './services/admin.service.client';
 import { ManagerComponent } from './manager/manager.component';
+import {AdvertiserServiceClient} from './services/advertiser.service.client';
+import { AdvertisementComponent } from './advertisement/advertisement.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +65,8 @@ import { ManagerComponent } from './manager/manager.component';
     TrackToPlaylistComponent,
     PlaylistComponent,
     ManageComponent,
-    ManagerComponent
+    ManagerComponent,
+    AdvertisementComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +78,7 @@ import { ManagerComponent } from './manager/manager.component';
   ],
   providers: [DashboardRightPaneComponent, ArtistServiceClient, CriticServiceClient,
     PersonServiceClient, NapsterServiceClient, UploadFileService, TrackServiceClient,
-    AlbumServiceClient, PlaylistServiceClient, AdminServiceClient],
+    AlbumServiceClient, PlaylistServiceClient, AdminServiceClient, AdvertiserServiceClient],
   bootstrap: [AppComponent]
 })
 export class AppModule {

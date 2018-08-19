@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AppComponent} from '../app.component';
+import {Person} from '../models/Person';
+import {PersonServiceClient} from '../services/person.service.client';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,11 +10,15 @@ import {AppComponent} from '../app.component';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private appComp: AppComponent) {
+  person: Person;
+
+  constructor(private appComp: AppComponent, private personService: PersonServiceClient) {
     appComp.ngOnInit();
   }
 
   ngOnInit() {
+    this.personService.checkSession().subscribe(
+      (person: Person) => this.person = person);
   }
 
 }

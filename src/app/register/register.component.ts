@@ -3,6 +3,7 @@ import {Person} from '../models/Person';
 import {ArtistServiceClient} from '../services/artist.service.client';
 import {CriticServiceClient} from '../services/critic.service.client';
 import {Router} from '@angular/router';
+import {AdvertiserServiceClient} from '../services/advertiser.service.client';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +17,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(private router: Router,
               private artistService: ArtistServiceClient,
-              private criticService: CriticServiceClient) {
+              private criticService: CriticServiceClient,
+              private advertiserService: AdvertiserServiceClient) {
   }
 
   ngOnInit() {
@@ -33,6 +35,9 @@ export class RegisterComponent implements OnInit {
         .subscribe(createdPerson => this.router.navigate(['dashboard']));
     } else if (p.userType === 'Critic') {
       this.criticService.createCritic(p)
+        .subscribe(createdPerson => this.router.navigate(['dashboard']));
+    } else if (p.userType === 'Advertiser') {
+      this.advertiserService.createAdvertiser(p)
         .subscribe(createdPerson => this.router.navigate(['dashboard']));
     }
   }
