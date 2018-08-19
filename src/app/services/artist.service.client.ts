@@ -10,13 +10,20 @@ export class ArtistServiceClient {
   constructor(private http: HttpClient) {
   }
 
+  findAllArtists() {
+    return this.http.get(this.ARTIST_URL);
+  }
+
   createArtist(artist) {
-    console.log(artist);
     return this.http.post(this.ARTIST_URL, artist);
   }
 
   updateArtist(artist) {
     return this.http.put(this.ARTIST_URL + '/' + artist.id, artist);
+  }
+
+  deleteArtist(id) {
+    return this.http.delete(this.ARTIST_URL + '/' + id);
   }
 
   findArtistById(aid) {

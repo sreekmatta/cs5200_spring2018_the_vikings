@@ -35,6 +35,9 @@ import { AlbumComponent } from './album/album.component';
 import { ArtistComponent } from './artist/artist.component';
 import { TrackToPlaylistComponent } from './track-to-playlist/track-to-playlist.component';
 import { PlaylistComponent } from './playlist/playlist.component';
+import { ManageComponent } from './manage/manage.component';
+import {AdminServiceClient} from './services/admin.service.client';
+import { ManagerComponent } from './manager/manager.component';
 import {AdvertiserServiceClient} from './services/advertiser.service.client';
 import { AdvertisementComponent } from './advertisement/advertisement.component';
 
@@ -61,6 +64,8 @@ import { AdvertisementComponent } from './advertisement/advertisement.component'
     ArtistComponent,
     TrackToPlaylistComponent,
     PlaylistComponent,
+    ManageComponent,
+    ManagerComponent,
     AdvertisementComponent
   ],
   imports: [
@@ -73,7 +78,7 @@ import { AdvertisementComponent } from './advertisement/advertisement.component'
   ],
   providers: [DashboardRightPaneComponent, ArtistServiceClient, CriticServiceClient,
     PersonServiceClient, NapsterServiceClient, UploadFileService, TrackServiceClient,
-    AlbumServiceClient, PlaylistServiceClient, AdvertiserServiceClient],
+    AlbumServiceClient, PlaylistServiceClient, AdminServiceClient, AdvertiserServiceClient],
   bootstrap: [AppComponent]
 })
 export class AppModule {

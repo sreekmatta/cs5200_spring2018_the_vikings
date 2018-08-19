@@ -11,6 +11,7 @@ import {AlbumComponent} from './album/album.component';
 import {ArtistComponent} from './artist/artist.component';
 import {CreateTrackFormComponent} from './create-track-form/create-track-form.component';
 import {PlaylistComponent} from './playlist/playlist.component';
+import {ManageComponent} from './manage/manage.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -19,6 +20,7 @@ const appRoutes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'dashboard', component: DashboardComponent},
+  {path: 'manage', component: ManageComponent},
   {path: 'track/:id', component: TrackComponent},
   {path: 'album/:id', component: AlbumComponent},
   {path: 'artist/:id', component: ArtistComponent},

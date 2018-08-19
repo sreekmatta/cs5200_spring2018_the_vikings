@@ -10,6 +10,19 @@ export class AdvertiserServiceClient {
   constructor(private http: HttpClient) {
   }
 
+  findAllAdvertisers() {
+    return this.http.get(this.ADVERTISER_URL);
+  }
+
+  deleteAdvertiser(id) {
+    return this.http.delete(this.ADVERTISER_URL + '/' + id);
+  }
+
+  updateAdvertiser(advertiser) {
+    console.log(this.ADVERTISER_URL + '/' + advertiser.id);
+    return this.http.put(this.ADVERTISER_URL + '/' + advertiser.id, advertiser);
+  }
+
   createAdvertiser(advertiser) {
     return this.http.post(this.ADVERTISER_URL, advertiser);
   }

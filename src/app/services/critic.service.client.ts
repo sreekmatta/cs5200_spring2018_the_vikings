@@ -14,12 +14,20 @@ export class CriticServiceClient {
   constructor(private http: HttpClient) {
   }
 
+  findAllCritics() {
+   return this.http.get(this.CRITIC_URL);
+  }
+
   createCritic(critic) {
     return this.http.post(this.CRITIC_URL, critic);
   }
 
   updateCritic(critic) {
     return this.http.put(this.CRITIC_URL + '/' + critic.id, critic);
+  }
+
+  deleteCritic(id) {
+    return this.http.delete(this.CRITIC_URL + '/' + id);
   }
 
   likeStatus(tid) {
