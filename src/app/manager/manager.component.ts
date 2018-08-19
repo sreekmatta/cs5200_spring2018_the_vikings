@@ -72,8 +72,7 @@ export class ManagerComponent implements OnInit {
         });
     } else if (this.entity === 'advertiser') {
       this.advertiserService.updateAdvertiser(result)
-        .subscribe(response => {
-          console.log(response);
+        .subscribe(() => {
           this.edit = false;
         }, () =>  {
           alert('Couldn\'t edit advertiser!');

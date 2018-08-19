@@ -65,11 +65,10 @@ export class ArtistComponent implements OnInit {
       }
       , error => alert('could not load user'));
     if (this.artistId.indexOf('art') >= 0) {
-      this.artistId = this.artistId.split('.').pop();
+      this.finalArtistId = this.artistId.split('.').pop();
       this.isNapster = true;
     }
-    this.finalArtistId = this.artistId;
-    this.artistService.findArtistById(this.artistId)
+    this.artistService.findArtistById(this.finalArtistId)
       .subscribe(
         (response: Artist) => {
           if (response) {
@@ -97,10 +96,10 @@ export class ArtistComponent implements OnInit {
 
   addAvertisement(ad) {
     if (this.isNapster) {
-      this.advertiserService.createAdvertisementsCreatedInNapsterArtistPage(this.artistId, this.person, ad)
+      this.advertiserService.createAdvertisementsCreatedInNapsterArtistPage(this.finalArtistId, this.person, ad)
         .subscribe(response => response);
     } else {
-      this.advertiserService.createAdvertisementsCreatedInArtistPage(this.artistId, this.person, ad)
+      this.advertiserService.createAdvertisementsCreatedInArtistPage(this.finalArtistId, this.person, ad)
         .subscribe(response => response);
     }
   }

@@ -40,6 +40,7 @@ import {AdminServiceClient} from './services/admin.service.client';
 import { ManagerComponent } from './manager/manager.component';
 import {AdvertiserServiceClient} from './services/advertiser.service.client';
 import { AdvertisementComponent } from './advertisement/advertisement.component';
+import { CritiqueComponent } from './critique/critique.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { AdvertisementComponent } from './advertisement/advertisement.component'
     PlaylistComponent,
     ManageComponent,
     ManagerComponent,
-    AdvertisementComponent
+    AdvertisementComponent,
+    CritiqueComponent
   ],
   imports: [
     BrowserModule,
