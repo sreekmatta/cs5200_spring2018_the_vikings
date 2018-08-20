@@ -297,10 +297,10 @@ body {
 
 .music__wrapper {
   position: relative;
-  width: 1000px;
-  height: 500px;
+  width: 850px;
+  height: 450px;
   background: #19181E;
-  margin: 0 auto;
+  margin-top: 100px;
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.8);
   overflow: hidden;
 }
@@ -483,7 +483,7 @@ body {
   margin: 0 auto;
   margin-top: 25px;
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.8);
-  margin-bottom: 50px
+  margin-bottom: 75px
 }
 
 .btn__wrapper {

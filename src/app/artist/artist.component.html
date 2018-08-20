@@ -1,16 +1,16 @@
-<div class="background-image" [ngStyle]="{'background-image': 'url(' + imageURL + ')'}"></div>
+<div class="background-image" *ngIf="imageURL" [ngStyle]="{'background-image': 'url(' + imageURL + ')'}"></div>
 <div class="main__container">
   <div class="contain__wrapper">
     <div class="music__wrapper">
       <div class="left__panel">
         <div class="cover owl-carousel">
           <div class="item">
-            <img style="width: 100%" [src]="imageURL"/>
+            <img style="width: 70%" *ngIf="imageURL" [src]="imageURL"/>
           </div>
-          <div style="background: #3e4147; width: 500px;  height: 163px; overflow: auto; padding-left: 10px; padding-top: 5px;
-                      padding-bottom: 5px; margin-top: 0px !important;">
-            <p style="color: #5bc0de; font-size: 1.15em; font-weight: 300; letter-spacing: 1px;
-              text-transform: uppercase;" *ngFor="let album of albums; let i = index" [innerHTML]="bio"></p>
+          <div style="background: #3e4147;width: 350px;height: 217px;overflow: auto;padding-left: 10px;padding-top: 5px;
+          padding-bottom: 5px;margin-top: -7px !important;">
+            <p style="color: #5bc0de; font-size: 1.15em; font-weight: 300; letter-spacing: 1px;"
+               *ngFor="let album of albums" [innerHTML]="bio"></p>
           </div>
         </div>
       </div>
@@ -33,7 +33,7 @@
                       padding-bottom: 5px">
             <ul *ngIf="albums">
               <li style="color: #5bc0de; font-size: 1.15em; font-weight: 300; letter-spacing: 1px;
-              text-transform: uppercase;" *ngFor="let album of albums; let i = index"
+              text-transform: none;" *ngFor="let album of albums; let i = index"
                   [attr.data-index]="i" (click)="goToAlbumPage(album.id)">{{i+1}}. {{album.name}}
               </li>
             </ul>
@@ -43,13 +43,14 @@
     </div>
     <div class="advertisement__wrapper">
       <div class="add__button">
-        <button class="btn btn-block btn-group-lg btn__wrapper " type="button"
+        <button *ngIf="person&&person.dType=='ADVERTISER'" class="btn btn-block btn-group-lg btn__wrapper " type="button"
                 (click)="createAdvertisementModal.open()">Create
           Advertisement
         </button>
       </div>
       <div class="adslist__wrapper">
-        <app-advertisement [artistId]="finalArtistId" [advertiserId]="person.id" [isNapst]="isNapster"></app-advertisement>
+        <app-advertisement *ngIf="person" [artistId]="finalArtistId" [advertiserId]="person.id"
+                           [isNapst]="isNapster"></app-advertisement>
       </div>
     </div>
   </div>

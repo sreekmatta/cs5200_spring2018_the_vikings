@@ -15,9 +15,8 @@ export class ResultsListComponent implements OnInit {
   @Input()
   resultList;
   @Input()
-  myLibrary;
-  @Input()
   domainObject;
+  @Input() myLibrary;
 
   person;
   faPlusCircle = faPlusCircle;

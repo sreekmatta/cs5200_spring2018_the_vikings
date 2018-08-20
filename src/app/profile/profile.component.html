@@ -38,6 +38,12 @@
     </div>
   </div>
   <div class="form-group row">
+    <label for="inputUserType" class="col-sm-2 col-form-label">User Type</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputUserType" name="dType" [(ngModel)]="person.dType">
+    </div>
+  </div>
+  <div class="form-group row">
       <div class="float-left">
         <button type="button" class="btn btn-primary" (click)="update(this.person)">Update</button>
       </div>

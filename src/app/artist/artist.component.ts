@@ -26,6 +26,7 @@ export class ArtistComponent implements OnInit {
   newAdvertisement: Advertisement;
   finalArtistId;
   successMsg;
+
   constructor(private route: ActivatedRoute,
               private router: Router,
               private napsterService: NapsterServiceClient,
@@ -39,8 +40,11 @@ export class ArtistComponent implements OnInit {
     this.napsterService.findArtistById(artistId)
       .subscribe(response => {
           this.artistResult = response['artists'][0];
-          this.bio = response['artists'][0]['bios'][0]['bio'];
-          console.log(response['artists'][0]);
+          if (response['artists'][0]['bios']) {
+            this.bio = response['artists'][0]['bios'][0]['bio'];
+          } else {
+            this.bio = '';
+          }
           this.napsterService.getArtistImage(response['artists'][0]['links']['images']['href'])
             .subscribe(resp => {
                 this.imageURL = resp['images'][0].url;
@@ -49,7 +53,6 @@ export class ArtistComponent implements OnInit {
           this.napsterService.getArtistAlbums(response['artists'][0]['links']['albums']['href'])
             .subscribe(resp => {
                 this.albums = resp['albums'];
-                console.log(this.albums);
               },
               error => alert('Server couldn\'t find an artist albums!'));
         },
@@ -109,6 +112,7 @@ export class ArtistComponent implements OnInit {
         .subscribe(response => response);
     }
   }
+
   toggleCssInjector() {
     const head = document.head;
     const link = document.createElement('link');
