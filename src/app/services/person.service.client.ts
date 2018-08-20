@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
 @Injectable()
 export class PersonServiceClient {
 
-  DOMAIN_URL = 'http://localhost:8080';
+  DOMAIN_URL = 'https://music-hub-app-springboot.herokuapp.com';
   REGISTER_URL = this.DOMAIN_URL + '/api/register';
   USER_URL = this.DOMAIN_URL + '/api/login';
   LOGIN_URL = this.DOMAIN_URL + '/api/login';

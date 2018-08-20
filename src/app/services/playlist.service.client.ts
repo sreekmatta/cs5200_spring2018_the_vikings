@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
 @Injectable()
 export class PlaylistServiceClient {
 
-  DOMAIN_URL = 'http://localhost:8080';
+  DOMAIN_URL = 'https://music-hub-app-springboot.herokuapp.com';
   PLAYLIST_URL = this.DOMAIN_URL + '/api/playlist/';
 
   constructor(private http: HttpClient) {

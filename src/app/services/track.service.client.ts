@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
 @Injectable()
 export class TrackServiceClient {
 
-  DOMAIN_URL = 'http://localhost:8080';
+  DOMAIN_URL = 'https://music-hub-app-springboot.herokuapp.com';
   TRACK_URL = this.DOMAIN_URL + '/api/track/';
 
   constructor(private http: HttpClient) {

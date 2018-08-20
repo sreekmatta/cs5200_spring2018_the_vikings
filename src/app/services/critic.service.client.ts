@@ -4,7 +4,7 @@ import {HttpClient} from '@angular/common/http';
 @Injectable()
 export class CriticServiceClient {
 
-  DOMAIN_URL = 'http://localhost:8080';
+  DOMAIN_URL = 'https://music-hub-app-springboot.herokuapp.com';
   CRITIC_URL = this.DOMAIN_URL + '/api/critic';
   LIKE_URL = this.DOMAIN_URL + '/api/critic/like';
   UNLIKE_URL = this.DOMAIN_URL + '/api/critic/unlike';

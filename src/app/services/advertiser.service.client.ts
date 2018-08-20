@@ -4,7 +4,7 @@ import {HttpClient} from '@angular/common/http';
 @Injectable()
 export class AdvertiserServiceClient {
 
-  DOMAIN_URL = 'http://localhost:8080';
+  DOMAIN_URL = 'https://music-hub-app-springboot.herokuapp.com';
   ADVERTISER_URL: string = this.DOMAIN_URL + '/api/advertiser';
 
   constructor(private http: HttpClient) {
