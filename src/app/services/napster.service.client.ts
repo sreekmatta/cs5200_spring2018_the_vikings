@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
 export class NapsterServiceClient {
 
   NAPSTER_KEY = 'YWJkMTA2MTMtN2I5Zi00MDE1LWE1MGQtMzJjNTZhOTFlMzBh';
-  NAPSTER_SEARCH_PREFIX = 'http://api.napster.com/v2.2';
+  NAPSTER_SEARCH_PREFIX = 'https://api.napster.com/v2.2';
   NAPSTER_SEARCH_QUERY_URL = this.NAPSTER_SEARCH_PREFIX + '/search?apikey=' + this.NAPSTER_KEY + '&query=';
 
   constructor(private http: HttpClient) {
