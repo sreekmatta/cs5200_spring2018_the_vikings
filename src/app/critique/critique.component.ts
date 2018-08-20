@@ -23,7 +23,7 @@ export class CritiqueComponent implements OnInit {
               private personService: PersonServiceClient,
               private criticService: CriticServiceClient,
               private trackService: TrackServiceClient,
-              private albumSercice: AlbumServiceClient) {
+              private albumService: AlbumServiceClient) {
     this.personService.checkSession().subscribe(
       (person: Person) => {
         this.person = person;
@@ -36,25 +36,39 @@ export class CritiqueComponent implements OnInit {
             }, () => alert('Couldn\'t load likes!'));
         } else if (this.domainObject === 'rating') {
           this.criticService.getRatings(this.person.id)
-            .subscribe(response => {
+            .subscribe((response: any) => {
               if (response) {
                 this.ratings = response;
-                response.map(review =>  {
-                  this.trackService.findTrackById(review['id'])
-                    .subscribe(track =>  review['track'] = track,
-                      () => alert('Couldn\'t find the rated track'));
+                response.map(rating =>  {
+                  this.trackService.findAllTracks()
+                    .subscribe((tracks: any) => {
+                      tracks.map(track => {
+                        track.ratings.map(r => {
+                          if (r.id === rating['id']) {
+                            rating['track'] = track;
+                          }
+                        });
+                      });
+                    }, () => alert('Some error occurred!'));
                 });
               }
             }, () => alert('Couldn\'t load ratings!'));
         } else if (this.domainObject === 'review') {
           this.criticService.getReviews(this.person.id)
-            .subscribe(response => {
+            .subscribe((response: any) => {
               if (response) {
                 this.reviews = response;
                 response.map(review =>  {
-                  this.albumSercice.findAlbumById(review['id'])
-                    .subscribe(album => review['album'] = album,
-                      () => alert('Couldn\'t find the reviewed album'));
+                  this.albumService.findAllAlbums()
+                    .subscribe((albums: any) => {
+                      albums.map(album => {
+                        album.reviews.map(r => {
+                          if (r.id === review['id']) {
+                            review['album'] = album;
+                          }
+                        });
+                      });
+                      }, () => alert('Some error occurred!'));
                 });
               }
             }, () => alert('Couldn\'t load reviews!'));

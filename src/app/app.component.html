@@ -28,7 +28,7 @@
           <a class="dropdown-item" href="/dashboard">Dashboard</a>
           <div role="separator" class="dropdown-divider"></div>
           <a class="dropdown-item" href="/profile">Profile</a>
-          <a class="dropdown-item" (click)="logout()">Logout</a>
+          <a class="dropdown-item" style="cursor: pointer" (click)="logout()">Logout</a>
           <div *ngIf="person.dType === 'ADMIN'" role="separator" class="dropdown-divider"></div>
           <a *ngIf="person.dType === 'ADMIN'" class="dropdown-item" href="/manage">Manage</a>
         </div>
