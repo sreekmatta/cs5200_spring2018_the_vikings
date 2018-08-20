@@ -4,6 +4,7 @@ MusicHub App is a online Music Streaming app with a functionality to browse mill
 
 ## Getting Started
 
+To verify how the project work, please visit the website which is hosted on [Heroku](https://music-hub-app-angular.herokuapp.com/)
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a local machine.
 
 ### Prerequisites
@@ -44,7 +45,8 @@ Now you should be able to see the apllication running at http://localhost:4200/
 
 This repo contains the code for frontend of the MusicHubApp
 The backend code is located [here](https://github.com/sreekmatta/music-hub-app-backend) 
-The backend code is deployed on [Heroku](https://music-hub-app-springboot.herokuapp.com/api/person) 
+The backend is deployed on [Heroku](https://music-hub-app-springboot.herokuapp.com/api/person) 
+The frontend is deployed on [Heroku](https://music-hub-app-angular.herokuapp.com/)
 
 ## Demo on [Youtube](https://youtu.be/JPWXj6A1Q_s)
 
