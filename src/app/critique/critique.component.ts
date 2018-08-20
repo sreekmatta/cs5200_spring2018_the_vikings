@@ -5,6 +5,8 @@ import {CriticServiceClient} from '../services/critic.service.client';
 import {Router} from '@angular/router';
 import {TrackServiceClient} from '../services/track.service.client';
 import {AlbumServiceClient} from '../services/album.service.client';
+import {Track} from '../models/Track';
+import {Album} from '../models/Album';
 
 @Component({
   selector: 'app-critique',
