@@ -13,7 +13,7 @@ export class UploadFileService {
   constructor(private http: HttpClient) {
   }
 
-  DOMAIN_URL = 'http://localhost:8080';
+  DOMAIN_URL = 'https://music-hub-app-springboot.herokuapp.com';
 
   pushTrackToStorage(file: File, track: Track, album: Album): Observable<HttpEvent<{}>> {
     const formdata: FormData = new FormData();
