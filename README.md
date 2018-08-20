@@ -1,27 +1,70 @@
-# MusicHubApp
+# MusicHub App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+MusicHub App is a online Music Streaming app with a functionality to browse millions of tracks, albums, playlist and artists for free.
 
-## Development server
+## Getting Started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a local machine.
 
-## Code scaffolding
+### Prerequisites
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* Node.js
+* npm
 
-## Build
+Please follow the below instruction to install prerequisites on your system:
+* Download the Windows installer from the [Nodes.js® web site.](https://nodejs.org/en/)
+* Run the installer (the .msi file you downloaded in the previous step.)
+* Follow the prompts in the installer (Accept the license agreement, click the NEXT button a bunch of times and accept the default installation settings).
+installer
+* Restart your computer. You won’t be able to run Node.js® until you restart your computer. 
+#### Test the prerequisites:
+Make sure you have Node and NPM installed by running simple commands to see what version of each is installed and to run a simple test program:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+* Test Node. To see if Node is installed, open the Windows Command Prompt, Powershell or a similar command line tool, and type node -v. This should print a version number, so you’ll see something like this v0.10.35.
+* Test NPM. To see if NPM is installed, type npm -v in Terminal. This should print NPM’s version number so you’ll see something like this 1.4.28
+* Create a test file and run it. A simple way to test that node.js works is to create a JavaScript file: name it hello.js, and just add the code console.log('Node is installed!');. To run the code simply open your command line program, navigate to the folder where you save the file and type node hello.js. This will start Node and run the code in the hello.js file. You should see the output Node is installed!.
 
-## Running unit tests
+### Installing and Running Application on Local Machine
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Download this front-end repo. Navigate into the project folder and execute the below command:
 
-## Running end-to-end tests
+```
+ng install
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+And then execute the below command:
 
-## Further help
+```
+ng serve
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Now you should be able to see the apllication running at http://localhost:4200/ 
+
+## Deployment
+
+This repo contains the code for frontend of the MusicHubApp
+The backend code is located [here](https://github.com/sreekmatta/music-hub-app-backend) 
+The backend code is deployed on [Heroku](https://music-hub-app-springboot.herokuapp.com/api/person) 
+
+## Demo on [Youtube](https://youtu.be/JPWXj6A1Q_s)
+
+## Built With
+
+* [Angular 6.0.8](http://www.dropwizard.io/1.0.2/docs/) - Frontend Framework
+* [SpringBoot](https://spring.io/projects/spring-boot) - Backend Framework
+
+## Developers
+
+* **Sree Keerthi Matta** - [GitHub](https://github.com/sreekmatta)
+* **Samanjate Sood** - [GitHub](https://github.com/samanjate)
+
+## 3rd Party API
+
+We have used below 3rd party APIs for our project:
+* [Napster API](https://developer.napster.com/api/v2.2)
+* [Amazon S3](https://aws.amazon.com/s3/)
+
+## Acknowledgments
+
+* Inspired from Spotify, Napster
+

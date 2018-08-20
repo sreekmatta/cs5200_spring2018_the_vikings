@@ -5,6 +5,8 @@ import {CriticServiceClient} from '../services/critic.service.client';
 import {Router} from '@angular/router';
 import {TrackServiceClient} from '../services/track.service.client';
 import {AlbumServiceClient} from '../services/album.service.client';
+import {Track} from '../models/Track';
+import {Album} from '../models/Album';
 
 @Component({
   selector: 'app-critique',
@@ -36,22 +38,22 @@ export class CritiqueComponent implements OnInit {
             }, () => alert('Couldn\'t load likes!'));
         } else if (this.domainObject === 'rating') {
           this.criticService.getRatings(this.person.id)
-            .subscribe(response => {
+            .subscribe((response: Track[]) => {
               if (response) {
                 this.ratings = response;
-                response.map(review =>  {
+                response.map(review => {
                   this.trackService.findTrackById(review['id'])
-                    .subscribe(track =>  review['track'] = track,
+                    .subscribe(track => review['track'] = track,
                       () => alert('Couldn\'t find the rated track'));
                 });
               }
             }, () => alert('Couldn\'t load ratings!'));
         } else if (this.domainObject === 'review') {
           this.criticService.getReviews(this.person.id)
-            .subscribe(response => {
+            .subscribe((response: Album[]) => {
               if (response) {
                 this.reviews = response;
-                response.map(review =>  {
+                response.map(review => {
                   this.albumSercice.findAlbumById(review['id'])
                     .subscribe(album => review['album'] = album,
                       () => alert('Couldn\'t find the reviewed album'));
